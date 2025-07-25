@@ -3,712 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenAI Insights - Professional AI Training Platform</title>
-    <meta name="description" content="Master GenAI, LLM training, reward hacking, and AI safety with interactive professional training resources.">
+    <title>📈 GenAI Comprehensive Learning Roadmap</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
             color: #333;
-            overflow-x: hidden;
-        }
-        
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            transform: translateY(-100%);
-        }
-        
-        .header.visible {
-            transform: translateY(0);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2563eb;
-            text-decoration: none;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-menu a:hover {
-            color: #2563eb;
-        }
-        
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #2563eb;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-        
-        .cta-nav {
-            background: #2563eb;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-nav:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 2rem;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .hero-content {
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #1f2937;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out 0.2s forwards;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out 0.4s forwards;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out 0.6s forwards;
-        }
-        
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #374151;
-            padding: 1rem 2rem;
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .btn-secondary:hover {
-            border-color: #2563eb;
-            color: #2563eb;
-            transform: translateY(-2px);
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInScale 1s ease-out 0.8s forwards;
-        }
-        
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .visual-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .visual-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .visual-card:nth-child(2) { animation-delay: 0.5s; }
-        .visual-card:nth-child(3) { animation-delay: 1s; }
-        .visual-card:nth-child(4) { animation-delay: 1.5s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .visual-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .visual-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 5rem 2rem;
-            background: white;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
-        
-        .section-header p {
-            font-size: 1.125rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
             background: white;
-            padding: 2rem;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        thead {
+            background-color: #f7f9fb;
+            font-weight: bold;
+            color: #222;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+        }
+
+        td:first-child, th:first-child {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+
+        strong {
+            color: #000;
         }
         
-        .feature-card.animate {
-            opacity: 1;
-            transform: translateY(0);
+        .project-row {
+            background-color: #f8fffe;
+            border-left: 4px solid #10b981;
         }
         
-        .feature-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
+        .project-row td:first-child {
+            color: #059669;
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
+        .project-icon {
+            color: #10b981;
+            margin-right: 8px;
         }
         
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 1rem;
+        .total-summary {
+            background: #e8f4fd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #1a73e8;
         }
         
-        .feature-card p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-        
-        .feature-link:hover {
-            gap: 0.75rem;
-        }
-        
-        /* Topics Section */
-        .topics {
-            padding: 5rem 2rem;
-            background: #f9fafb;
-        }
-        
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .topic-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #2563eb;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        
-        .topic-card.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .topic-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .topic-card h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .topic-card p {
-            color: #6b7280;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-        
-        .topic-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tag {
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        .topic-link {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            display: inline-block;
-            margin-top: 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .topic-link:hover {
-            color: #1d4ed8;
-        }
-        
-        /* Stats Section */
-        .stats {
-            padding: 4rem 2rem;
-            background: #2563eb;
-            color: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .stat-item {
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .stat-item.animate {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        /* CTA Section */
-        .final-cta {
-            padding: 5rem 2rem;
-            background: white;
-            text-align: center;
-        }
-        
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
-        
-        .final-cta p {
-            font-size: 1.125rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-        
-        /* Footer */
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 3rem 2rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #f9fafb;
-        }
-        
-        .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: #60a5fa;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #374151;
-            cursor: pointer;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .visual-grid {
-                grid-template-columns: 1fr 1fr;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-        }
-        
-        /* Scroll Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: #2563eb;
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
-        
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .project-summary {
+            background: #ecfdf5;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #10b981;
         }
     </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
-    
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="nav-container">
-            <a href="/" class="logo">🧠 GenAI Insights</a>
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home">Home</a>
-                <a href="./genai-interview.html">GenAI Interview Q & A</a>
-                <a href="/llm-training-stages">LLM Training</a>
-                <a href="#topics">Topics</a>
-                <a href="#about">Reward Hacking</a>
-            </nav>
-            <a href="/reward-hacking-intro" class="cta-nav">Get Started</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        </div>
-    </header>
+    <div class="container">
+        <h1>🗺️ GenAI Comprehensive Learning Roadmap</h1>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Master the Future of Generative AI</h1>
-                <p class="subtitle">
-                    Professional training platform for AI engineers, researchers, and industry leaders. 
-                    Learn reward hacking, RLHF, constitutional AI, and cutting-edge AI safety techniques.
-                </p>
-                <div class="hero-buttons">
-                    <a href="/reward-hacking-intro" class="btn-primary">Start Learning</a>
-                    <a href="/llm-training-stages" class="btn-secondary">View Training Guide</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-grid">
-                    <div class="visual-card">
-                        <span class="visual-icon">🎯</span>
-                        <h4><a href="./genai-interview.html">GenAI Interview Q & A</a></h4>
-                    </div>
-                    <div class="visual-card">
-                        <span class="visual-icon">🔄</span>
-                        <h4>RLHF Training</h4>
-                    </div>
-                    <div class="visual-card">
-                        <span class="visual-icon">🛡️</span>
-                        <h4>AI Safety</h4>
-                    </div>
-                    <div class="visual-card">
-                        <span class="visual-icon">📊</span>
-                        <h4>Model Analysis</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Duration<br/> (~15 Months)</th>
+                    <th>Focus</th>
+                    <th>Skills & Projects</th>
+                    <th>Effort Estimate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+					<td>1 week</td>
+					<td>AI Literacy</td>
+					<td>
+						<strong>GenAI Capabilities:</strong> What LLMs can do - text, code, image generation, summarization, reasoning<br>
+						<strong>Limitations:</strong> Hallucination, bias, context length, factuality issues<br>
+						<strong>Critical Evaluation:</strong> How to assess AI output for reliability and usefulness<br>
+						<strong>Tool Awareness:</strong> Overview of major LLMs (ChatGPT, Gemini, Claude, DeepSeek, Copilot, HuggingFace, etc.<br>
+						<strong>Ethical Considerations:</strong> AI safety, data privacy, fairness, misuse
+					</td>
+					<td>~5 hrs/week</td>
+				</tr>
+                <tr>
+					<td>3 weeks</td>
+					<td>Technical Foundation</td>
+					<td>
+						<strong>Programming & Tools:</strong> Python (list comprehensions, decorators, OOP, error handling), Git & GitHub basics<br>
+						<strong>APIs & Services:</strong> REST API creation and usage (requests, FastAPI/Flask basics), JSON handling<br>
+						<strong>Data Handling & Visualization:</strong> Batch & Streaming Data, Pandas, NumPy, Matplotlib/Seaborn, CSV/JSON file I/O<br>
+						<strong>Databases:</strong> SQL fundamentals, Intro to NoSQL<br>
+						<strong>DevOps & Deployment:</strong> Cloud basics (AWS or GCP or Azure overview), Docker intro (build, run containers)<br>
+						<strong>Optional:</strong> Basic scripting for automation, using Postman, command-line stuff
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>1 week</td>
+					<td>Project Phase 1: API Integration & Data Pipeline</td>
+					<td>
+						<strong>Project:</strong> Personal Data Analytics Dashboard<br>
+						• Build a Python application that fetches data from multiple APIs (weather, news, social media)<br>
+						• Create data processing pipeline with Pandas<br>
+						• Store data in SQLite database<br>
+						• Build visualizations with Matplotlib/Seaborn<br>
+						• Deploy using Docker and host on cloud platform<br>
+						<strong>Deliverable:</strong> Deployed web dashboard with automated data updates
+					</td>
+					<td>~10 hrs/week</td>
+				</tr>
+                <tr>
+					<td>3 weeks</td>
+					<td>Math for ML & AI</td>
+					<td>
+						<strong>Phase 1 - Core:</strong><br>
+						<strong>Linear Algebra:</strong> Dot product, matrix ops<br>
+						<strong>Calculus:</strong> Derivatives, gradients, chain rule<br>
+						<strong>Probability & Statistics:</strong> Descriptive stats, conditional probability, independence, Bayes' rule, expectations, basic distributions<br>
+						<strong>Optimization:</strong> Gradient descent, learning rate, regularization basics<br>
+						<strong>Applied Math:</strong> Softmax, loss functions, backprop basics<br><br>
+						
+						Continue to <strong>Phases 2 and 3</strong> if you are interested in ML and research oriented roles <br/><br/>
+						
+						<strong>Phase 2 - Intermediate:</strong><br>
+						<strong>Linear Algebra:</strong> Matrix norms, projections, decomposition<br>
+						<strong>Calculus:</strong> Partial derivatives, multivariable calculus, Markov chains/processes<br>
+						<strong>Probability & Statistics:</strong> Marginal probability, statistical tests, confidence intervals, hypothesis testing<br>
+						<strong>Optimization:</strong> Adam, learning rate schedulers, L1/L2 regularization<br>
+						<strong>Applied Math:</strong> Numerical stability, gradient clipping<br><br>
+						
+						<strong>Phase 3 - Advanced (Research Level):</strong><br>
+						<strong>Linear Algebra:</strong> Eigenspaces, SVD, tensor ops, PCA<br>
+						<strong>Calculus:</strong> Jacobian, Hessian, Taylor approximations<br>
+						<strong>Probability & Statistics:</strong> Entropy, KL divergence, information theory, statistical estimation, advanced distributions<br>
+						<strong>Optimization:</strong> Convex and constrained optimization (Lagrangian, KKT)<br>
+						<strong>Applied Math:</strong> Full backprop, loss design, second-order methods
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+                <tr>
+					<td>2 weeks</td>
+					<td>Machine Learning Fundamentals</td>
+					<td>
+						<strong>Core Concepts:</strong> Supervised vs unsupervised learning, classification vs regression, training/validation/test splits, overfitting & underfitting<br>
+						<strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding<br>
+						<strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC), cross-validation, grid search<br>
+						<strong>Optional:</strong>  Intro to ML pipelines, model persistence (pickle, joblib), basic interpretability (SHAP, LIME)
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>1 week</td>
+					<td>Project Phase 2: End-to-End ML Pipeline</td>
+					<td>
+						<strong>Project:</strong> Predictive Analytics System<br>
+						• Choose a real-world dataset (house prices, stock prediction, customer churn)<br>
+						• Build complete ML pipeline: data cleaning, feature engineering, model training<br>
+						• Compare multiple algorithms (Random Forest, XGBoost, Linear Regression)<br>
+						• Implement model evaluation and interpretability (SHAP)<br>
+						• Create web interface for predictions using Flask/FastAPI<br>
+						<strong>Deliverable:</strong> Deployed ML web application with model comparison dashboard
+					</td>
+					<td>~12 hrs/week</td>
+				</tr>
+                <tr>
+					<td>2 weeks</td>
+					<td>NLP Fundamentals & Text Processing</td>
+					<td>
+						<strong>Text Preprocessing & Normalization:</strong> Lowercasing, stemming, lemmatization, stopword removal, regex-based cleaning<br>
+						<strong>Tokenization Techniques:</strong> Word-level, subword-level (BPE, WordPiece, SentencePiece), sentence-level<br>
+						<strong>Word Representations:</strong> Word embeddings (Word2Vec, GloVe, FastText), one-hot encoding, bag-of-words<br>
+						<strong>Statistical Language Tools:</strong> n-grams, language modeling basics, TF-IDF, cosine similarity<br>
+						<strong>Linguistic Processing:</strong> Named Entity Recognition (NER), Part-of-Speech tagging, syntactic parsing<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+                <tr>
+					<td>2 weeks</td>
+					<td>Deep Learning & Neural Networks</td>
+					<td>
+						<strong>Neural Network Basics:</strong> Perceptrons, multi-layer networks, forward & backward passes, loss surfaces<br>
+						<strong>Training Essentials:</strong> Backpropagation algorithm, optimizers (SGD, Adam, AdamW), learning rate tuning<br>
+						<strong>Model Regularization:</strong> Dropout, batch normalization, early stopping<br>
+						<strong>Frameworks:</strong> PyTorch & TensorFlow (basic model building, training loops)<br>
+						<strong>Hardware:</strong> GPU/TPU fundamentals, CUDA basics, memory management<br>
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>1.5 weeks</td>
+					<td>Project Phase 3: Neural Network from Scratch</td>
+					<td>
+						<strong>Project:</strong> Custom Neural Network Implementation<br>
+						• Implement a neural network from scratch in NumPy (no PyTorch/TensorFlow)<br>
+						• Build forward pass, backpropagation, and gradient descent<br>
+						• Train on MNIST or simple classification dataset<br>
+						• Compare performance with PyTorch/TensorFlow implementation<br>
+						• Visualize training process, loss curves, and learned features<br>
+						<strong>Deliverable:</strong> Jupyter notebook with detailed implementation and analysis
+					</td>
+					<td>~12 hrs/week</td>
+				</tr>
+				<tr>
+					<td>1.5 weeks</td>
+					<td>Sequence Models: RNNs, LSTMs, GRUs</td>
+					<td>
+						<strong>Foundations:</strong> Understanding sequential data, time-step dependencies, vanishing/exploding gradients<br>
+						<strong>Architectures:</strong> RNNs, LSTMs (gates, cell state), GRUs, encoder-decoder setup<br>
+						<strong>Applications:</strong> Sequence classification, text generation, sentiment analysis, time series<br>
+						<strong>Limitations:</strong> Short-term memory, lack of parallelism, gradient instability<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr>
+					<td>3 weeks</td>
+					<td>Deep Transformer Architecture</td>
+					<td>
+						<strong>Core Components:</strong> Self-attention, multi-head attention, positional encoding<br>
+						<strong>Architecture Types:</strong> Encoder-decoder vs decoder-only, layer normalization, residual connections<br>
+						<strong>Variants & Models:</strong> BERT-like (Encoder), GPT-like Modern LLMs (Decoder or Autoregressive), BART (Encoder-Decoder) — structural differences<br>
+						<strong>FFNs & Optimization:</strong> Feedforward layers, initialization, gradient flow<br>
+					</td>
+					<td>~12–15 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 4: Mini Transformer Implementation</td>
+					<td>
+						<strong>Project:</strong> Build a Mini-GPT<br>
+						• Implement a small transformer model from scratch in PyTorch<br>
+						• Include self-attention, multi-head attention, and positional encoding<br>
+						• Train on a simple text generation task (Shakespeare, poetry, code)<br>
+						• Experiment with different architectures (encoder-only vs decoder-only)<br>
+						• Visualize attention patterns and generated text quality<br>
+						<strong>Deliverable:</strong> Working mini-transformer with text generation demo
+					</td>
+					<td>~15 hrs/week</td>
+				</tr>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Learning Resources</h4>
-                    <a href="/reward-hacking-intro">Reward Hacking Guide</a>
-                    <a href="/llm-training-stages">LLM Training Stages</a>
-                    <a href="/reward-hacking-intro#demo">Interactive Demos</a>
-                    <a href="/technical-resources">Technical Papers</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Core Topics</h4>
-                    <a href="/ai-safety-guide">AI Safety</a>
-                    <a href="/constitutional-ai">Constitutional AI</a>
-                    <a href="/model-evaluation">Model Evaluation</a>
-                    <a href="/scaling-laws">Scaling Laws</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Professional Training</h4>
-                    <a href="/beginner-guide">Beginner's Guide</a>
-                    <a href="/professional-training">Professional Track</a>
-                    <a href="/research-updates">Research Updates</a>
-                    <a href="/case-studies">Case Studies</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <a href="mailto:info@genaiinsights.com">info@genaiinsights.com</a>
-                    <a href="https://linkedin.com/company/genaiinsights" target="_blank">LinkedIn</a>
-			    </div>
+				<tr>
+					<td>1 week</td>
+					<td>Computer Vision Fundamentals</td>
+					<td>
+						<strong>Basics:</strong> Image formats, channels, filters, color spaces<br>
+						<strong>Neural Approaches:</strong> CNN architecture, convolution layers, pooling, receptive fields<br>
+						<strong>Toolkits:</strong> OpenCV basics, torchvision, image augmentation<br>
+						<strong>Modern Trends:</strong> Vision Transformers (ViTs), classification vs detection<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr>
+					<td>2 weeks</td>
+					<td>LLM Fundamentals & Training</td>
+					<td>
+						<strong>Training Paradigms:</strong> Pre-training vs fine-tuning, supervised vs unsupervised<br>
+						<strong>Objectives:</strong> Next-token prediction, masked language modeling (MLM), autoregressive modeling<br>
+						<strong>Scaling Laws:</strong> Model size, dataset size, compute-efficiency tradeoffs<br>
+						<strong>Modes:</strong> Training vs inference, parameter freezing, eval vs generation<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr>
+					<td>2 weeks</td>
+					<td>Prompt Engineering</td>
+					<td>
+						<strong>Core Techniques:</strong> Zero-shot, few-shot, chain-of-thought (CoT) etc prompting<br>
+						<strong>Control Mechanisms:</strong> Role-based prompts, formatting, style conditioning<br>
+						<strong>Decoding Strategies:</strong> Temperature, top-k/top-p sampling, repetition penalties<br>
+						<strong>Integration:</strong> OpenAI, Claude, Gemini, DeepSeek, Qwen, KIMI K2, Ollama APIs, LangChain/Llamaindex prompt templates<br>
+					</td>
+					<td>~6–8 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>1.5 weeks</td>
+					<td>Project Phase 5: Advanced Prompt Engineering Suite</td>
+					<td>
+						<strong>Project:</strong> Multi-LLM Prompt Optimization Platform<br>
+						• Build a system that tests prompts across multiple LLM APIs<br>
+						• Implement various prompting techniques (CoT, few-shot, role-playing)<br>
+						• Create automatic prompt optimization using genetic algorithms<br>
+						• Build evaluation metrics for prompt effectiveness<br>
+						• Design a web interface for prompt testing and comparison<br>
+						<strong>Deliverable:</strong> Prompt engineering platform with automated optimization
+					</td>
+					<td>~12 hrs/week</td>
+				</tr>
+
+				<tr>
+					<td>3 weeks</td>
+					<td>RAG Systems & Knowledge Management</td>
+					<td>
+						<strong>Core Architecture:</strong> Chunking techniques, retrieval-augmented generation design<br>
+						<strong>Embedding & Storage:</strong> Embedding models, vector databases (FAISS, ChromaDB, Pinecone, Weaviate, Milvus, AWS S3 Vector, AWS Opensearch, VertexAI Vector Search, Azure CosmosDB, Azure AI Search )<br>
+						<strong>Retrieval:</strong> Similarity search, hybrid retrieval (dense + sparse), contextual injection<br>
+						<strong>Tools & Integrations:</strong> LangChain, LlamaIndex, metadata filtering<br>
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>1 weeks</td>
+					<td>Project Phase 6: Enterprise RAG System</td>
+					<td>
+						<strong>Project:</strong> Intelligent Document Q&A System<br>
+						• Build a RAG system for a specific domain (legal docs, research papers, company docs)<br>
+						• Implement advanced chunking strategies and embedding optimization<br>
+						• Deploy multiple vector databases and compare performance<br>
+						• Add conversation memory and multi-turn dialogue capability<br>
+						• Include citation tracking and source verification<br>
+						• Build admin dashboard for document management and analytics<br>
+						<strong>Deliverable:</strong> Production-ready RAG system with web interface
+					</td>
+					<td>~15 hrs/week</td>
+				</tr>
+				<tr>
+					<td>3 weeks</td>
+					<td>LLM Evaluation & Benchmarking</td>
+					<td>
+						<strong>Benchmarks:</strong> MMLU, HELM, TruthfulQA, ARC, HellaSwag<br>
+						<strong>Metrics:</strong> BLEU, ROUGE, BERTScore, perplexity, human eval scoring<br>
+						<strong>Advanced Eval:</strong> Hallucination detection, fairness testing, bias analysis<br>
+						<strong>Automation:</strong> Evaluation pipelines, CI/CD for LLMs, A/B test setup<br>
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+				<tr>
+					<td>3 weeks</td>
+					<td>Advanced Agentic AI Systems</td>
+					<td>
+						<strong>Core Concepts:</strong> Multi-agent systems, planning loops, tool use via function calls<br>
+						<strong>Frameworks:</strong> LangChain Agents, LangGraph, AutoGen, crewAI, SmolAgent<br>
+						<strong>State & Memory:</strong> Episodic memory, shared context, memory stores<br>
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 7: Multi-Agent AI Workflow</td>
+					<td>
+						<strong>Project:</strong> AI Research Assistant Team<br>
+						• Create a multi-agent system with specialized roles (researcher, analyst, writer, critic)<br>
+						• Implement tool-calling capabilities (web search, data analysis, document generation)<br>
+						• Build coordination mechanisms between agents<br>
+						• Add memory persistence and learning capabilities<br>
+						• Create a workflow for complex research tasks<br>
+						<strong>Deliverable:</strong> Multi-agent system that can autonomously complete research projects
+					</td>
+					<td>~15 hrs/week</td>
+				</tr>
+				<tr>
+					<td>4 weeks</td>
+					<td>Multimodal</td>
+					<td>
+						<strong>Image Models:</strong> DALL·E, Stable Diffusion, Midjourney concepts<br>
+						<strong>VLMs:</strong> CLIP, Flamingo, BLIP, visual grounding, captioning<br>
+						<strong>Frontiers VLMs:</strong> Vision-Language Models (GPT-4o, Gemini 2.5 Pro, Claude 4/3.7/3.5 Sonnet, Qwen 2.5 VL, Llama 3.2 Vision, DeepSeek-VL, PaliGemma-2,Phi-4 Multimodal), audio-video-text models, neuro-symbolic AI<br>
+					</td>
+					<td>~10–12 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 8: Multimodal AI Application</td>
+					<td>
+						<strong>Project:</strong> AI Content Creation Studio<br>
+						• Build an application that processes text, images, audio, and video<br>
+						• Implement image generation, editing, and analysis<br>
+						• Add voice synthesis and audio processing<br>
+						• Create video understanding and generation capabilities<br>
+						• Build a unified interface for multimodal content creation<br>
+						<strong>Deliverable:</strong> Comprehensive multimodal AI platform for content creators
+					</td>
+					<td>~15 hrs/week</td>
+				</tr>
+				<tr>
+					<td>1 week</td>
+					<td>Transfer Learning & Model Distillation</td>
+					<td>
+						<strong>Transfer Learning:</strong> Pretraining vs Fine-tuning, feature extraction vs full fine-tuning, task adaptation<br>
+						<strong>Distillation:</strong> Knowledge distillation (soft labels, logits), student-teacher models, performance vs size trade-off<br>
+						<strong>Applications:</strong> Compressing LLMs, fast inference models, edge deployment<br>
+					</td>
+					<td>~8 hrs/week</td>
+				</tr>
+				<tr>
+					<td>4 weeks</td>
+					<td>Advanced Fine-Tuning & Customization</td>
+					<td>
+						<strong>Techniques:</strong> QLoRA, PEFT, Adapters, LoRA, prefix tuning<br>
+						<strong>Emerging Trends:</strong> Mixture of Experts (MoE), State Space Models (Mamba), SLMs<br>
+						<strong>Customization:</strong> Instruction tuning, DPO, PPO, GRPO, RLHF, domain adaptation<br>
+						<strong>Challenges:</strong> Tokenizer alignment, catastrophic forgetting<br>
+					</td>
+					<td>~12–15 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 9: Custom LLM Fine-Tuning</td>
+					<td>
+						<strong>Project:</strong> Domain-Specific Language Model<br>
+						• Fine-tune a pre-trained model for a specific domain (medical, legal, finance)<br>
+						• Implement various fine-tuning techniques (LoRA, QLoRA, full fine-tuning)<br>
+						• Create custom datasets and evaluation metrics<br>
+						• Implement RLHF pipeline for human preference alignment<br>
+						• Compare performance against base models<br>
+						<strong>Deliverable:</strong> Custom fine-tuned model with comprehensive evaluation report
+					</td>
+					<td>~18 hrs/week</td>
+				</tr>
+				<tr>
+					<td>2 weeks</td>
+					<td>Data Engineering for AI</td>
+					<td>
+						<strong>ETL Pipelines:</strong> Batch & streaming data, Airflow basics<br>
+						<strong>Quality & Versioning:</strong> Great Expectations, feature stores, data validation<br>
+						<strong>Privacy & Simulation:</strong> Differential privacy, synthetic data generation<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr>
+					<td>2 weeks</td>
+					<td>AI Safety & Ethics</td>
+					<td>
+						<strong>Risks:</strong> Hallucinations, malicious use, adversarial prompts<br>
+						<strong>Alignment:</strong> Constitutional AI, red teaming, system monitoring<br>
+						<strong>Governance:</strong> Risk classification, AI principles, transparency checklists<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
+				<tr>
+					<td>4 weeks</td>
+					<td>LLMOps & Production Deployment</td>
+					<td>
+						<strong>Deployment:</strong> Containerization (Docker, K8s), serverless inference<br>
+						<strong>LLMOps Tools:</strong> TrueFoundry, BentoML, Ray Serve, Amazon SageMaker, Azure Machine Learning, Google Cloud Vertex AI, prompt versioning, model registry<br>
+						<strong>Observability:</strong> Monitoring, logging, safety guardrails, rollback plans<br>
+					</td>
+					<td>~12–15 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 10: Production LLM System</td>
+					<td>
+						<strong>Project:</strong> Scalable AI-Powered SaaS Platform<br>
+						• Build a complete production system with user authentication, billing, and analytics<br>
+						• Implement model serving with auto-scaling and load balancing<br>
+						• Add comprehensive monitoring, logging, and alerting<br>
+						• Create CI/CD pipeline for model deployment and updates<br>
+						• Implement safety guardrails and content filtering<br>
+						• Build admin dashboard for system management<br>
+						<strong>Deliverable:</strong> Production-ready SaaS platform with full LLMOps pipeline
+					</td>
+					<td>~20 hrs/week</td>
+				</tr>
+				<tr>
+					<td>2 weeks</td>
+					<td>Regulatory Compliance & Governance</td>
+					<td>
+						<strong>Frameworks:</strong> EU AI Act, NIST, OECD principles<br>
+						<strong>Privacy:</strong> GDPR compliance, data anonymization, consent tracing<br>
+						<strong>Auditability:</strong> Explainability, logging trails, model documentation<br>
+					</td>
+					<td>~6–8 hrs/week</td>
+				</tr>
+				<tr class="project-row">
+					<td><span class="project-icon"></span>2 weeks</td>
+					<td>Project Phase 11: Capstone Project</td>
+					<td>
+						<strong>Project:</strong> End-to-End AI Solution for Real Problem<br>
+						• Choose a complex real-world problem and build a comprehensive AI solution<br>
+						• Integrate multiple technologies: LLMs, RAG, agents, multimodal AI, custom models<br>
+						• Implement full production pipeline with monitoring, safety, and compliance<br>
+						• Create detailed documentation, technical blog posts, and presentation<br>
+						• Open source the project and contribute to AI community<br>
+						<strong>Deliverable:</strong> Portfolio-worthy project demonstrating mastery of GenAI stack
+					</td>
+					<td>~15 hrs/week</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
 </body>
-</html>				
+</html>
