@@ -5,30 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🗺️ GenAI Comprehensive Learning Roadmap</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             background-color: #f5f7fa;
             color: #333;
+            font-size: 14px;
         }
         
         .container {
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         h1 {
             text-align: center;
             color: #2c3e50;
-            font-size: 2.2em;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .roadmap-link {
+            text-align: center;
             margin-bottom: 30px;
         }
+
+        .roadmap-link a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .roadmap-link a:hover {
+            text-decoration: underline;
+        }
         
-        table {
+        /* Desktop table styles */
+        .desktop-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
@@ -38,68 +61,202 @@
             margin-top: 16px;
         }
 
-        th, td {
+        .desktop-table th, 
+        .desktop-table td {
             padding: 14px 12px;
             text-align: left;
             border-bottom: 1px solid #eee;
             vertical-align: top;
         }
 
-        thead {
+        .desktop-table thead {
             background-color: #f7f9fb;
             font-weight: bold;
             color: #222;
         }
 
-        tr:hover {
+        .desktop-table tr:hover {
             background-color: #f0f4ff;
         }
 
-        td:first-child, th:first-child {
+        .desktop-table td:first-child, 
+        .desktop-table th:first-child {
             color: #1a73e8;
             font-weight: bold;
         }
 
-        strong {
-            color: #000;
-        }
-        
-        .project-row {
+        .desktop-table .project-row {
             background-color: #f8fffe;
             border-left: 4px solid #10b981;
         }
         
-        .project-row td:first-child {
+        .desktop-table .project-row td:first-child {
             color: #059669;
         }
-        
+
+        /* Mobile card styles */
+        .mobile-cards {
+            display: none;
+        }
+
+        .roadmap-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid #1a73e8;
+        }
+
+        .roadmap-item.project {
+            border-left-color: #10b981;
+            background-color: #f8fffe;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .duration {
+            font-weight: bold;
+            color: #1a73e8;
+            font-size: 1em;
+        }
+
+        .project .duration {
+            color: #059669;
+        }
+
+        .effort {
+            background: #e8f4fd;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #1a73e8;
+            font-weight: 500;
+        }
+
+        .project .effort {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .focus {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .skills {
+            line-height: 1.5;
+        }
+
+        .skills strong {
+            color: #000;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .skills strong:first-child {
+            margin-top: 0;
+        }
+
         .project-icon {
             color: #10b981;
             margin-right: 8px;
         }
-        
-        .total-summary {
-            background: #e8f4fd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            border-left: 4px solid #1a73e8;
+
+        /* Responsive breakpoint */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .desktop-table {
+                display: none;
+            }
+
+            .mobile-cards {
+                display: block;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .duration {
+                font-size: 1.1em;
+            }
+
+            .focus {
+                font-size: 1.05em;
+                margin-bottom: 12px;
+            }
+
+            .effort {
+                align-self: flex-start;
+            }
         }
-        
-        .project-summary {
-            background: #ecfdf5;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid #10b981;
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.3em;
+            }
+
+            .roadmap-item {
+                padding: 15px;
+            }
+
+            .skills strong {
+                font-size: 0.95em;
+            }
+        }
+
+        strong {
+            color: #000;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🗺️ GenAI Comprehensive Learning Roadmap</h1>
-		<a href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md" style="color:cornflowerblue" target="_blank">GenAI Roadmap for moderate learning pace with resource links</a>
-        <table>
+        
+        <div class="roadmap-link">
+            <a href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md" target="_blank">
+                GenAI Roadmap for moderate learning pace with resource links
+            </a>
+        </div>
+
+        <!-- Desktop Table View -->
+        <table class="desktop-table">
             <thead>
                 <tr>
                     <th>Duration<br/> (~10.5 Months)</th>
@@ -110,414 +267,876 @@
             </thead>
             <tbody>
                 <tr>
-					<td>1 week</td>
-					<td>AI Literacy</td>
-					<td>
-						<strong>GenAI Capabilities:</strong> What LLMs can do - text, code, image generation, summarization, reasoning<br>
-						<strong>Limitations:</strong> Hallucination, bias, context length, factuality issues<br>
-						<strong>Critical Evaluation:</strong> How to assess AI output for reliability and usefulness<br>
-						<strong>Tool Awareness:</strong> Overview of major LLMs (ChatGPT, Gemini, Claude, DeepSeek, Copilot, HuggingFace, etc.<br>
-						<strong>Ethical Considerations:</strong> AI safety, data privacy, fairness, misuse
-					</td>
-					<td>~5 hrs/week</td>
-				</tr>
+                    <td>1 week</td>
+                    <td>AI Literacy</td>
+                    <td>
+                        <strong>GenAI Capabilities:</strong> What LLMs can do - text, code, image generation, summarization, reasoning<br>
+                        <strong>Limitations:</strong> Hallucination, bias, context length, factuality issues<br>
+                        <strong>Critical Evaluation:</strong> How to assess AI output for reliability and usefulness<br>
+                        <strong>Tool Awareness:</strong> Overview of major LLMs (ChatGPT, Gemini, Claude, DeepSeek, Copilot, HuggingFace, etc.<br>
+                        <strong>Ethical Considerations:</strong> AI safety, data privacy, fairness, misuse
+                    </td>
+                    <td>~5 hrs/week</td>
+                </tr>
                 <tr>
-					<td>2.5 weeks</td>
-					<td>Technical Foundation</td>
-					<td>
-						<strong>Programming & Tools:</strong> Python (list comprehensions, decorators, OOP, error handling), Git & GitHub basics<br>
-						<strong>APIs & Services:</strong> REST API creation and usage (requests, FastAPI/Flask basics), JSON handling<br>
-						<strong>Data Handling & Visualization:</strong> Batch & Streaming Data, Pandas, NumPy, Matplotlib/Seaborn, CSV/JSON file I/O<br>
-						<strong>Databases:</strong> SQL fundamentals, Intro to NoSQL<br>
-						<strong>DevOps & Deployment:</strong> Cloud basics (AWS or GCP or Azure overview), Docker intro (build, run containers)<br>
-						<strong>Optional:</strong> Basic scripting for automation, using Postman, command-line stuff
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 1: API Integration & Data Pipeline</td>
-					<td>
-						<strong>Project:</strong> Personal Data Analytics Dashboard<br>
-						• Build a Python application that fetches data from multiple APIs (weather, news, social media)<br>
-						• Create data processing pipeline with Pandas<br>
-						• Store data in SQLite database<br>
-						• Build visualizations with Matplotlib/Seaborn<br>
-						• Deploy using Docker and host on cloud platform<br>
-						<strong>Deliverable:</strong> Deployed web dashboard with automated data updates
-					</td>
-					<td>~10 hrs/week</td>
-				</tr>
+                    <td>2.5 weeks</td>
+                    <td>Technical Foundation</td>
+                    <td>
+                        <strong>Programming & Tools:</strong> Python (list comprehensions, decorators, OOP, error handling), Git & GitHub basics<br>
+                        <strong>APIs & Services:</strong> REST API creation and usage (requests, FastAPI/Flask basics), JSON handling<br>
+                        <strong>Data Handling & Visualization:</strong> Batch & Streaming Data, Pandas, NumPy, Matplotlib/Seaborn, CSV/JSON file I/O<br>
+                        <strong>Databases:</strong> SQL fundamentals, Intro to NoSQL<br>
+                        <strong>DevOps & Deployment:</strong> Cloud basics (AWS or GCP or Azure overview), Docker intro (build, run containers)<br>
+                        <strong>Optional:</strong> Basic scripting for automation, using Postman, command-line stuff
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 1: API Integration & Data Pipeline</td>
+                    <td>
+                        <strong>Project:</strong> Personal Data Analytics Dashboard<br>
+                        • Build a Python application that fetches data from multiple APIs (weather, news, social media)<br>
+                        • Create data processing pipeline with Pandas<br>
+                        • Store data in SQLite database<br>
+                        • Build visualizations with Matplotlib/Seaborn<br>
+                        • Deploy using Docker and host on cloud platform<br>
+                        <strong>Deliverable:</strong> Deployed web dashboard with automated data updates
+                    </td>
+                    <td>~10 hrs/week</td>
+                </tr>
                 <tr>
-					<td>3 weeks</td>
-					<td>Math for ML & AI</td>
-					<td>
-						<strong>Phase 1 - Core:</strong><br>
-						<strong>Linear Algebra:</strong> Dot product, matrix ops<br>
-						<strong>Calculus:</strong> Derivatives, gradients, chain rule<br>
-						<strong>Probability & Statistics:</strong> Descriptive stats, conditional probability, independence, Bayes' rule, expectations, basic distributions<br>
-						<strong>Optimization:</strong> Gradient descent, learning rate, regularization basics<br>
-						<strong>Applied Math:</strong> Softmax, loss functions, backprop basics<br><br>
-						
-						Continue to <strong>Phases 2 and 3</strong> if you are interested in ML and research oriented roles <br/><br/>
-						
-						<strong>Phase 2 - Intermediate:</strong><br>
-						<strong>Linear Algebra:</strong> Matrix norms, projections, decomposition<br>
-						<strong>Calculus:</strong> Partial derivatives, multivariable calculus, Markov chains/processes<br>
-						<strong>Probability & Statistics:</strong> Marginal probability, statistical tests, confidence intervals, hypothesis testing<br>
-						<strong>Optimization:</strong> Adam, learning rate schedulers, L1/L2 regularization<br>
-						<strong>Applied Math:</strong> Numerical stability, gradient clipping<br><br>
-						
-						<strong>Phase 3 - Advanced (Research Level):</strong><br>
-						<strong>Linear Algebra:</strong> Eigenspaces, SVD, tensor ops, PCA<br>
-						<strong>Calculus:</strong> Jacobian, Hessian, Taylor approximations<br>
-						<strong>Probability & Statistics:</strong> Entropy, KL divergence, information theory, statistical estimation, advanced distributions<br>
-						<strong>Optimization:</strong> Convex and constrained optimization (Lagrangian, KKT)<br>
-						<strong>Applied Math:</strong> Full backprop, loss design, second-order methods
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
+                    <td>3 weeks</td>
+                    <td>Math for ML & AI</td>
+                    <td>
+                        <strong>Phase 1 - Core:</strong><br>
+                        <strong>Linear Algebra:</strong> Dot product, matrix ops<br>
+                        <strong>Calculus:</strong> Derivatives, gradients, chain rule<br>
+                        <strong>Probability & Statistics:</strong> Descriptive stats, conditional probability, independence, Bayes' rule, expectations, basic distributions<br>
+                        <strong>Optimization:</strong> Gradient descent, learning rate, regularization basics<br>
+                        <strong>Applied Math:</strong> Softmax, loss functions, backprop basics<br><br>
+                        
+                        Continue to <strong>Phases 2 and 3</strong> if you are interested in ML and research oriented roles <br/><br/>
+                        
+                        <strong>Phase 2 - Intermediate:</strong><br>
+                        <strong>Linear Algebra:</strong> Matrix norms, projections, decomposition<br>
+                        <strong>Calculus:</strong> Partial derivatives, multivariable calculus, Markov chains/processes<br>
+                        <strong>Probability & Statistics:</strong> Marginal probability, statistical tests, confidence intervals, hypothesis testing<br>
+                        <strong>Optimization:</strong> Adam, learning rate schedulers, L1/L2 regularization<br>
+                        <strong>Applied Math:</strong> Numerical stability, gradient clipping<br><br>
+                        
+                        <strong>Phase 3 - Advanced (Research Level):</strong><br>
+                        <strong>Linear Algebra:</strong> Eigenspaces, SVD, tensor ops, PCA<br>
+                        <strong>Calculus:</strong> Jacobian, Hessian, Taylor approximations<br>
+                        <strong>Probability & Statistics:</strong> Entropy, KL divergence, information theory, statistical estimation, advanced distributions<br>
+                        <strong>Optimization:</strong> Convex and constrained optimization (Lagrangian, KKT)<br>
+                        <strong>Applied Math:</strong> Full backprop, loss design, second-order methods
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
                 <tr>
-					<td>2 weeks</td>
-					<td>Machine Learning Fundamentals</td>
-					<td>
-						<strong>Core Concepts:</strong> Supervised vs unsupervised learning, classification vs regression, training/validation/test splits, overfitting & underfitting<br>
-						<strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding, outlier detection<br>
-						<strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC, MAE, MSE, RMSE, R-squared, adjusted R-squared), cross-validation, grid search<br>
-						<strong>Optional:</strong>  Intro to ML pipelines, model persistence (pickle, joblib), basic interpretability (SHAP, LIME)
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 2: End-to-End ML Pipeline</td>
-					<td>
-						<strong>Project:</strong> Predictive Analytics System<br>
-						• Choose a real-world dataset (house prices, stock prediction, customer churn)<br>
-						• Build complete ML pipeline: data cleaning, feature engineering, model training<br>
-						• Compare multiple algorithms (Random Forest, XGBoost, Linear Regression)<br>
-						• Implement model evaluation and interpretability (SHAP)<br>
-						• Create web interface for predictions using Flask/FastAPI<br>
-						<strong>Deliverable:</strong> Deployed ML web application with model comparison dashboard
-					</td>
-					<td>~12 hrs/week</td>
-				</tr>
+                    <td>2 weeks</td>
+                    <td>Machine Learning Fundamentals</td>
+                    <td>
+                        <strong>Core Concepts:</strong> Supervised vs unsupervised learning, classification vs regression, training/validation/test splits, overfitting & underfitting<br>
+                        <strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding, outlier detection<br>
+                        <strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC, MAE, MSE, RMSE, R-squared, adjusted R-squared), cross-validation, grid search<br>
+                        <strong>Optional:</strong>  Intro to ML pipelines, model persistence (pickle, joblib), basic interpretability (SHAP, LIME)
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 2: End-to-End ML Pipeline</td>
+                    <td>
+                        <strong>Project:</strong> Predictive Analytics System<br>
+                        • Choose a real-world dataset (house prices, stock prediction, customer churn)<br>
+                        • Build complete ML pipeline: data cleaning, feature engineering, model training<br>
+                        • Compare multiple algorithms (Random Forest, XGBoost, Linear Regression)<br>
+                        • Implement model evaluation and interpretability (SHAP)<br>
+                        • Create web interface for predictions using Flask/FastAPI<br>
+                        <strong>Deliverable:</strong> Deployed ML web application with model comparison dashboard
+                    </td>
+                    <td>~12 hrs/week</td>
+                </tr>
                 <tr>
-					<td>2 weeks</td>
-					<td>NLP Fundamentals & Text Processing</td>
-					<td>
-						<strong>Text Preprocessing & Normalization:</strong> Lowercasing, stemming, lemmatization, stopword removal, regex-based cleaning<br>
-						<strong>Tokenization Techniques:</strong> Word-level, subword-level (BPE, WordPiece, SentencePiece), sentence-level<br>
-						<strong>Word Representations:</strong> Word embeddings (Word2Vec, GloVe, FastText), one-hot encoding, bag-of-words<br>
-						<strong>Statistical Language Tools:</strong> n-grams, language modeling basics, TF-IDF, cosine similarity<br>
-						<strong>Linguistic Processing:</strong> Named Entity Recognition (NER), Part-of-Speech tagging, syntactic parsing<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
+                    <td>2 weeks</td>
+                    <td>NLP Fundamentals & Text Processing</td>
+                    <td>
+                        <strong>Text Preprocessing & Normalization:</strong> Lowercasing, stemming, lemmatization, stopword removal, regex-based cleaning<br>
+                        <strong>Tokenization Techniques:</strong> Word-level, subword-level (BPE, WordPiece, SentencePiece), sentence-level<br>
+                        <strong>Word Representations:</strong> Word embeddings (Word2Vec, GloVe, FastText), one-hot encoding, bag-of-words<br>
+                        <strong>Statistical Language Tools:</strong> n-grams, language modeling basics, TF-IDF, cosine similarity<br>
+                        <strong>Linguistic Processing:</strong> Named Entity Recognition (NER), Part-of-Speech tagging, syntactic parsing<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
                 <tr>
-					<td>2 weeks</td>
-					<td>Deep Learning & Neural Networks</td>
-					<td>
-						<strong>Neural Network Basics:</strong> Perceptrons, multi-layer networks, forward & backward passes, loss surfaces<br>
-						<strong>Training Essentials:</strong> Backpropagation algorithm, optimizers (SGD, Adam, AdamW), learning rate tuning<br>
-						<strong>Model Regularization:</strong> Dropout, batch normalization, early stopping<br>
-						<strong>Frameworks:</strong> PyTorch & TensorFlow (basic model building, training loops)<br>
-						<strong>Hardware:</strong> GPU/TPU fundamentals, CUDA basics, memory management<br>
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 3: Neural Network from Scratch</td>
-					<td>
-						<strong>Project:</strong> Custom Neural Network Implementation<br>
-						• Implement a neural network from scratch in NumPy (no PyTorch/TensorFlow)<br>
-						• Build forward pass, backpropagation & gradient descent<br>
-						• Train on MNIST or simple classification dataset<br>
-						• Compare performance with PyTorch/TensorFlow implementation<br>
-						• Visualize training process, loss curves & learned features<br>
-						<strong>Deliverable:</strong> Jupyter notebook with detailed implementation and analysis
-					</td>
-					<td>~12 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>Sequence Models: RNNs, LSTMs, GRUs</td>
-					<td>
-						<strong>Foundations:</strong> Understanding sequential data, time-step dependencies, vanishing/exploding gradients<br>
-						<strong>Architectures:</strong> RNNs, LSTMs (gates, cell state), GRUs, encoder-decoder setup<br>
-						<strong>Applications:</strong> Sequence classification, text generation, sentiment analysis, time series<br>
-						<strong>Limitations:</strong> Short-term memory, lack of parallelism, gradient instability<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>Deep Transformer Architecture</td>
-					<td>
-						<strong>Core Components:</strong> Self-attention, multi-head attention, positional encoding<br>
-						<strong>Architecture Types:</strong> Encoder-decoder vs decoder-only, layer normalization, residual connections<br>
-						<strong>Variants & Models:</strong> BERT-like (Encoder), GPT-like Modern LLMs (Decoder or Autoregressive), BART (Encoder-Decoder) — structural differences<br>
-						<strong>FFNs & Optimization:</strong> Feedforward layers, initialization, gradient flow<br>
-					</td>
-					<td>~12–15 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>2 weeks</td>
-					<td>Project 4: Mini Transformer Implementation</td>
-					<td>
-						<strong>Project:</strong> Build a Mini-GPT<br>
-						• Implement a small transformer model from scratch in PyTorch<br>
-						• Include self-attention, multi-head attention & positional encoding<br>
-						• Train on a simple text generation task (Shakespeare, poetry, code)<br>
-						• Experiment with different architectures (encoder-only vs decoder-only)<br>
-						• Visualize attention patterns and generated text quality<br>
-						<strong>Deliverable:</strong> Working mini-transformer with text generation demo
-					</td>
-					<td>~15 hrs/week</td>
-				</tr>
-
-				<tr>
-					<td>1 week</td>
-					<td>Computer Vision Fundamentals</td>
-					<td>
-						<strong>Basics:</strong> Image formats, channels, filters, color spaces<br>
-						<strong>Neural Approaches:</strong> CNN architecture, convolution layers, pooling, receptive fields<br>
-						<strong>Toolkits:</strong> OpenCV basics, torchvision, image augmentation<br>
-						<strong>Modern Trends:</strong> Vision Transformers (ViTs), classification vs detection<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>LLM Fundamentals & Training</td>
-					<td>
-						<strong>Training Paradigms:</strong> Pre-training vs fine-tuning, supervised vs unsupervised<br>
-						<strong>Objectives:</strong> Next-token prediction, masked language modeling (MLM), autoregressive modeling<br>
-						<strong>Scaling Laws:</strong> Model size, dataset size, compute-efficiency tradeoffs<br>
-						<strong>Modes:</strong> Training vs inference, parameter freezing, eval vs generation<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>Prompt Engineering</td>
-					<td>
-						<strong>Core Techniques:</strong> Zero-shot, few-shot, chain-of-thought (CoT) etc prompting<br>
-						<strong>Control Mechanisms:</strong> Role-based prompts, formatting, style conditioning<br>
-						<strong>Decoding Strategies:</strong> Temperature, top-k/top-p sampling, repetition penalties<br>
-						<strong>Integration:</strong> OpenAI, Claude, Gemini, DeepSeek, Qwen, KIMI K2, Ollama APIs, LangChain/Llamaindex prompt templates<br>
-					</td>
-					<td>~6–8 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>LLM APIs & Local Models</td>
-					<td>
-						<strong>Core Concepts:</strong> Prompting via LLM APIs, local vs hosted models, inference pipelines, model selection<br>
-						<strong>Hands-on Tools:</strong> Ollama (local LLMs like LLaMA, Mistral), Hugging Face Transformers & Inference API, OpenAI/Gemini/Claude/DeepSeek/Groq etc API usage<br>
-						<strong>Code Skills:</strong> Python scripts for text generation, embeddings, chat interfaces, model loading, token handling, streaming responses<br>
-						<strong>Deployment Context:</strong> Running models locally (Ollama), hybrid setups using HF endpoints, managing latency & cost trade-offs<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 5: Advanced Prompt Engineering Suite</td>
-					<td>
-						<strong>Project:</strong> Multi-LLM Prompt Optimization Platform<br>
-						• Build a system that tests prompts across multiple LLM APIs<br>
-						• Implement various prompting techniques (CoT, few-shot, role-playing)<br>
-						• Create automatic prompt optimization using genetic algorithms<br>
-						• Build evaluation metrics for prompt effectiveness<br>
-						• Design a web interface for prompt testing and comparison<br>
-						<strong>Deliverable:</strong> Prompt engineering platform with automated optimization
-					</td>
-					<td>~12 hrs/week</td>
-				</tr>
-
-				<tr>
-					<td>2 weeks</td>
-					<td>RAG Systems & Knowledge Management</td>
-					<td>
-						<strong>Core Architecture:</strong> Chunking techniques, retrieval-augmented generation design<br>
-						<strong>Embedding & Storage:</strong> Embedding models, vector databases (FAISS, ChromaDB, Pinecone, Weaviate, Milvus, AWS S3 Vector, AWS Opensearch, VertexAI Vector Search, Azure CosmosDB, Azure AI Search )<br>
-						<strong>Retrieval:</strong> Similarity search, hybrid retrieval (dense + sparse), contextual injection<br>
-						<strong>Tools & Integrations:</strong> LangChain, LlamaIndex, metadata filtering<br>
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 6: Enterprise RAG System</td>
-					<td>
-						<strong>Project:</strong> Intelligent Document Q&A System using different LLM APIs or Ollama/Huggingface based API<br>
-						• Build a RAG system for a specific domain (legal docs, research papers, company docs)<br>
-						• Implement advanced chunking strategies and embedding optimization<br>
-						• Deploy multiple vector databases and compare performance<br>
-						• Add conversation memory and multi-turn dialogue capability<br>
-						• Include citation tracking and source verification<br>
-						• Build admin dashboard for document management and analytics<br>
-						<strong>Deliverable:</strong> Production-ready RAG system with web interface
-					</td>
-					<td>~15 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>LLM Evaluation & Benchmarking</td>
-					<td>
-						<strong>Benchmarks:</strong> MMLU, HELM, TruthfulQA, ARC, HellaSwag<br>
-						<strong>Metrics:</strong> BLEU, ROUGE, BERTScore, perplexity, human eval scoring<br>
-						<strong>Advanced Eval:</strong> Hallucination detection, fairness testing, bias analysis<br>
-						<strong>Automation:</strong> Evaluation pipelines, CI/CD for LLMs, A/B test setup<br>
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>Agentic AI Systems</td>
-					<td>
-						<strong>Core Concepts:</strong> Autonomous & collaborative multi-agent workflows, planning & reasoning loops, tool usage via function/API calls<br>
-						<strong>Frameworks:</strong> LangChain Agents, LangGraph (for stateful agent flows), AutoGen (LLM orchestration), CrewAI (role-based agents), SmolAgent (lightweight agents)<br>
-						<strong>State & Memory:</strong> Episodic memory, semantic memory, shared context, vector-based memory stores<br>
-						<strong>Model Context Protocol:</strong> Standardized communication interface between agents and LLMs (e.g., OpenAI's MCP for structured multi-turn agent planning)<br>
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 weeks</td>
-					<td>Project 7: Multi-Agent AI Workflow</td>
-					<td>
-						<strong>Project:</strong> AI Research Assistant Team<br>
-						• Create a multi-agent system with specialized roles (researcher, analyst, writer, critic)<br>
-						• Implement tool-calling capabilities (web search, data analysis, document generation)<br>
-						• Build coordination mechanisms between agents<br>
-						• Add memory persistence and learning capabilities<br>
-						• Create a workflow for complex research tasks<br>
-						<strong>Deliverable:</strong> Multi-agent system that can autonomously complete research projects
-					</td>
-					<td>~15 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>Multimodal</td>
-					<td>
-						<strong>Image Models:</strong> DALL·E, Stable Diffusion, Midjourney concepts<br>
-						<strong>VLMs:</strong> CLIP, Flamingo, BLIP, visual grounding, captioning<br>
-						<strong>Frontiers VLMs:</strong> Vision-Language Models (GPT-4o, Gemini 2.5 Pro, Claude 4/3.7/3.5 Sonnet, Qwen 2.5 VL, Llama 3.2 Vision, DeepSeek-VL, PaliGemma-2,Phi-4 Multimodal), audio-video-text models, neuro-symbolic AI<br>
-					</td>
-					<td>~10–12 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 8: Multimodal AI Application</td>
-					<td>
-						<strong>Project:</strong> AI Content Creation Studio<br>
-						• Build an application that processes text, images, audio & video<br>
-						• Implement image generation, editing & analysis<br>
-						• Add voice synthesis and audio processing<br>
-						• Create video understanding and generation capabilities<br>
-						• Build a unified interface for multimodal content creation<br>
-						<strong>Deliverable:</strong> Comprehensive multimodal AI platform for content creators
-					</td>
-					<td>~15 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>Transfer Learning & Model Distillation</td>
-					<td>
-						<strong>Transfer Learning:</strong> Pretraining vs Fine-tuning, feature extraction vs full fine-tuning, task adaptation<br>
-						<strong>Distillation:</strong> Knowledge distillation (soft labels, logits), student-teacher models, performance vs size trade-off<br>
-						<strong>Applications:</strong> Compressing LLMs, fast inference models, edge deployment<br>
-					</td>
-					<td>~8 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>Fine-Tuning & Customization</td>
-					<td>
-						<strong>Techniques:</strong> QLoRA, PEFT, Adapters, LoRA, prefix tuning<br>
-						<strong>Emerging Trends:</strong> Mixture of Experts (MoE), State Space Models (Mamba), SLMs<br>
-						<strong>Customization:</strong> Instruction tuning, DPO, PPO, GRPO, RLHF, domain adaptation<br>
-						<strong>Challenges:</strong> Tokenizer alignment, catastrophic forgetting<br>
-					</td>
-					<td>~12–15 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>2 weeks</td>
-					<td>Project 9: Custom LLM Fine-Tuning</td>
-					<td>
-						<strong>Project:</strong> Domain-Specific Language Model<br>
-						• Fine-tune a pre-trained model for a specific domain (medical, legal, finance)<br>
-						• Implement various fine-tuning techniques (LoRA, QLoRA, full fine-tuning)<br>
-						• Create custom datasets and evaluation metrics<br>
-						• Implement RLHF pipeline for human preference alignment<br>
-						• Compare performance against base models<br>
-						<strong>Deliverable:</strong> Custom fine-tuned model with comprehensive evaluation report
-					</td>
-					<td>~18 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>Data Engineering fundamentals for AI</td>
-					<td>
-						<strong>ETL Pipelines:</strong> Batch & streaming data, Airflow basics<br>
-						<strong>Quality & Versioning:</strong> Great Expectations, feature stores, data validation<br>
-						<strong>Privacy & Simulation:</strong> Differential privacy, synthetic data generation<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr>
-					<td>1 week</td>
-					<td>AI Safety & Ethics</td>
-					<td>
-						<strong>Risks:</strong> Hallucinations, malicious use, adversarial prompts<br>
-						<strong>Alignment:</strong> Constitutional AI, red teaming, system monitoring<br>
-						<strong>Governance:</strong> Risk classification, AI principles, transparency checklists<br>
-					</td>
-					<td>~8–10 hrs/week</td>
-				</tr>
-				<tr>
-					<td>2 weeks</td>
-					<td>LLMOps & Production Deployment</td>
-					<td>
-						<strong>Deployment:</strong> Containerization (Docker, K8s), serverless inference<br>
-						<strong>LLMOps Tools:</strong> TrueFoundry, BentoML, Ray Serve, Amazon SageMaker, Azure Machine Learning, Google Cloud Vertex AI, prompt versioning, model registry<br>
-						<strong>Observability:</strong> Monitoring, logging, safety guardrails, rollback plans<br>
-					</td>
-					<td>~12–15 hrs/week</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 10: Production LLM System</td>
-					<td>
-						<strong>Project:</strong> Scalable AI-Powered SaaS Platform<br>
-						• Build a complete production system with user authentication, billing & analytics<br>
-						• Implement model serving with auto-scaling and load balancing<br>
-						• Add comprehensive monitoring, logging & alerting<br>
-						• Create CI/CD pipeline for model deployment and updates<br>
-						• Implement safety guardrails and content filtering<br>
-						• Build admin dashboard for system management<br>
-						<strong>Deliverable:</strong> Production-ready SaaS platform with full LLMOps pipeline
-					</td>
-					<td>~15 hrs</td>
-				</tr>
-				<tr class="project-row">
-					<td><span class="project-icon"></span>1 week</td>
-					<td>Project 11: Capstone Project</td>
-					<td>
-						<strong>Project:</strong> End-to-End AI Solution for Real Problem<br>
-						• Choose a complex real-world problem and build a comprehensive AI solution<br>
-						• Integrate multiple technologies: LLMs, RAG, agents, multimodal AI, custom models<br>
-						• Implement full production pipeline with monitoring, safety & compliance<br>
-						• Create detailed documentation, technical blog posts & presentation<br>
-						• Open source the project and contribute to AI community<br>
-						<strong>Deliverable:</strong> Portfolio worthy project demonstrating expertise of GenAI stack
-					</td>
-					<td>~15 hrs</td>
-				</tr>
+                    <td>2 weeks</td>
+                    <td>Deep Learning & Neural Networks</td>
+                    <td>
+                        <strong>Neural Network Basics:</strong> Perceptrons, multi-layer networks, forward & backward passes, loss surfaces<br>
+                        <strong>Training Essentials:</strong> Backpropagation algorithm, optimizers (SGD, Adam, AdamW), learning rate tuning<br>
+                        <strong>Model Regularization:</strong> Dropout, batch normalization, early stopping<br>
+                        <strong>Frameworks:</strong> PyTorch & TensorFlow (basic model building, training loops)<br>
+                        <strong>Hardware:</strong> GPU/TPU fundamentals, CUDA basics, memory management<br>
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 3: Neural Network from Scratch</td>
+                    <td>
+                        <strong>Project:</strong> Custom Neural Network Implementation<br>
+                        • Implement a neural network from scratch in NumPy (no PyTorch/TensorFlow)<br>
+                        • Build forward pass, backpropagation & gradient descent<br>
+                        • Train on MNIST or simple classification dataset<br>
+                        • Compare performance with PyTorch/TensorFlow implementation<br>
+                        • Visualize training process, loss curves & learned features<br>
+                        <strong>Deliverable:</strong> Jupyter notebook with detailed implementation and analysis
+                    </td>
+                    <td>~12 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>Sequence Models: RNNs, LSTMs, GRUs</td>
+                    <td>
+                        <strong>Foundations:</strong> Understanding sequential data, time-step dependencies, vanishing/exploding gradients<br>
+                        <strong>Architectures:</strong> RNNs, LSTMs (gates, cell state), GRUs, encoder-decoder setup<br>
+                        <strong>Applications:</strong> Sequence classification, text generation, sentiment analysis, time series<br>
+                        <strong>Limitations:</strong> Short-term memory, lack of parallelism, gradient instability<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>Deep Transformer Architecture</td>
+                    <td>
+                        <strong>Core Components:</strong> Self-attention, multi-head attention, positional encoding<br>
+                        <strong>Architecture Types:</strong> Encoder-decoder vs decoder-only, layer normalization, residual connections<br>
+                        <strong>Variants & Models:</strong> BERT-like (Encoder), GPT-like Modern LLMs (Decoder or Autoregressive), BART (Encoder-Decoder) — structural differences<br>
+                        <strong>FFNs & Optimization:</strong> Feedforward layers, initialization, gradient flow<br>
+                    </td>
+                    <td>~12–15 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>2 weeks</td>
+                    <td>Project 4: Mini Transformer Implementation</td>
+                    <td>
+                        <strong>Project:</strong> Build a Mini-GPT<br>
+                        • Implement a small transformer model from scratch in PyTorch<br>
+                        • Include self-attention, multi-head attention & positional encoding<br>
+                        • Train on a simple text generation task (Shakespeare, poetry, code)<br>
+                        • Experiment with different architectures (encoder-only vs decoder-only)<br>
+                        • Visualize attention patterns and generated text quality<br>
+                        <strong>Deliverable:</strong> Working mini-transformer with text generation demo
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>Computer Vision Fundamentals</td>
+                    <td>
+                        <strong>Basics:</strong> Image formats, channels, filters, color spaces<br>
+                        <strong>Neural Approaches:</strong> CNN architecture, convolution layers, pooling, receptive fields<br>
+                        <strong>Toolkits:</strong> OpenCV basics, torchvision, image augmentation<br>
+                        <strong>Modern Trends:</strong> Vision Transformers (ViTs), classification vs detection<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>LLM Fundamentals & Training</td>
+                    <td>
+                        <strong>Training Paradigms:</strong> Pre-training vs fine-tuning, supervised vs unsupervised<br>
+                        <strong>Objectives:</strong> Next-token prediction, masked language modeling (MLM), autoregressive modeling<br>
+                        <strong>Scaling Laws:</strong> Model size, dataset size, compute-efficiency tradeoffs<br>
+                        <strong>Modes:</strong> Training vs inference, parameter freezing, eval vs generation<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>Prompt Engineering</td>
+                    <td>
+                        <strong>Core Techniques:</strong> Zero-shot, few-shot, chain-of-thought (CoT) etc prompting<br>
+                        <strong>Control Mechanisms:</strong> Role-based prompts, formatting, style conditioning<br>
+                        <strong>Decoding Strategies:</strong> Temperature, top-k/top-p sampling, repetition penalties<br>
+                        <strong>Integration:</strong> OpenAI, Claude, Gemini, DeepSeek, Qwen, KIMI K2, Ollama APIs, LangChain/Llamaindex prompt templates<br>
+                    </td>
+                    <td>~6–8 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>LLM APIs & Local Models</td>
+                    <td>
+                        <strong>Core Concepts:</strong> Prompting via LLM APIs, local vs hosted models, inference pipelines, model selection<br>
+                        <strong>Hands-on Tools:</strong> Ollama (local LLMs like LLaMA, Mistral), Hugging Face Transformers & Inference API, OpenAI/Gemini/Claude/DeepSeek/Groq etc API usage<br>
+                        <strong>Code Skills:</strong> Python scripts for text generation, embeddings, chat interfaces, model loading, token handling, streaming responses<br>
+                        <strong>Deployment Context:</strong> Running models locally (Ollama), hybrid setups using HF endpoints, managing latency & cost trade-offs<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 5: Advanced Prompt Engineering Suite</td>
+                    <td>
+                        <strong>Project:</strong> Multi-LLM Prompt Optimization Platform<br>
+                        • Build a system that tests prompts across multiple LLM APIs<br>
+                        • Implement various prompting techniques (CoT, few-shot, role-playing)<br>
+                        • Create automatic prompt optimization using genetic algorithms<br>
+                        • Build evaluation metrics for prompt effectiveness<br>
+                        • Design a web interface for prompt testing and comparison<br>
+                        <strong>Deliverable:</strong> Prompt engineering platform with automated optimization
+                    </td>
+                    <td>~12 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>RAG Systems & Knowledge Management</td>
+                    <td>
+                        <strong>Core Architecture:</strong> Chunking techniques, retrieval-augmented generation design<br>
+                        <strong>Embedding & Storage:</strong> Embedding models, vector databases (FAISS, ChromaDB, Pinecone, Weaviate, Milvus, AWS S3 Vector, AWS Opensearch, VertexAI Vector Search, Azure CosmosDB, Azure AI Search )<br>
+                        <strong>Retrieval:</strong> Similarity search, hybrid retrieval (dense + sparse), contextual injection<br>
+                        <strong>Tools & Integrations:</strong> LangChain, LlamaIndex, metadata filtering<br>
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 6: Enterprise RAG System</td>
+                    <td>
+                        <strong>Project:</strong> Intelligent Document Q&A System using different LLM APIs or Ollama/Huggingface based API<br>
+                        • Build a RAG system for a specific domain (legal docs, research papers, company docs)<br>
+                        • Implement advanced chunking strategies and embedding optimization<br>
+                        • Deploy multiple vector databases and compare performance<br>
+                        • Add conversation memory and multi-turn dialogue capability<br>
+                        • Include citation tracking and source verification<br>
+                        • Build admin dashboard for document management and analytics<br>
+                        <strong>Deliverable:</strong> Production-ready RAG system with web interface
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>LLM Evaluation & Benchmarking</td>
+                    <td>
+                        <strong>Benchmarks:</strong> MMLU, HELM, TruthfulQA, ARC, HellaSwag<br>
+                        <strong>Metrics:</strong> BLEU, ROUGE, BERTScore, perplexity, human eval scoring<br>
+                        <strong>Advanced Eval:</strong> Hallucination detection, fairness testing, bias analysis<br>
+                        <strong>Automation:</strong> Evaluation pipelines, CI/CD for LLMs, A/B test setup<br>
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>Agentic AI Systems</td>
+                    <td>
+                        <strong>Core Concepts:</strong> Autonomous & collaborative multi-agent workflows, planning & reasoning loops, tool usage via function/API calls<br>
+                        <strong>Frameworks:</strong> LangChain Agents, LangGraph (for stateful agent flows), AutoGen (LLM orchestration), CrewAI (role-based agents), SmolAgent (lightweight agents)<br>
+                        <strong>State & Memory:</strong> Episodic memory, semantic memory, shared context, vector-based memory stores<br>
+                        <strong>Model Context Protocol:</strong> Standardized communication interface between agents and LLMs (e.g., OpenAI's MCP for structured multi-turn agent planning)<br>
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 weeks</td>
+                    <td>Project 7: Multi-Agent AI Workflow</td>
+                    <td>
+                        <strong>Project:</strong> AI Research Assistant Team<br>
+                        • Create a multi-agent system with specialized roles (researcher, analyst, writer, critic)<br>
+                        • Implement tool-calling capabilities (web search, data analysis, document generation)<br>
+                        • Build coordination mechanisms between agents<br>
+                        • Add memory persistence and learning capabilities<br>
+                        • Create a workflow for complex research tasks<br>
+                        <strong>Deliverable:</strong> Multi-agent system that can autonomously complete research projects
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>Multimodal</td>
+                    <td>
+                        <strong>Image Models:</strong> DALL·E, Stable Diffusion, Midjourney concepts<br>
+                        <strong>VLMs:</strong> CLIP, Flamingo, BLIP, visual grounding, captioning<br>
+                        <strong>Frontiers VLMs:</strong> Vision-Language Models (GPT-4o, Gemini 2.5 Pro, Claude 4/3.7/3.5 Sonnet, Qwen 2.5 VL, Llama 3.2 Vision, DeepSeek-VL, PaliGemma-2,Phi-4 Multimodal), audio-video-text models, neuro-symbolic AI<br>
+                    </td>
+                    <td>~10–12 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 8: Multimodal AI Application</td>
+                    <td>
+                        <strong>Project:</strong> AI Content Creation Studio<br>
+                        • Build an application that processes text, images, audio & video<br>
+                        • Implement image generation, editing & analysis<br>
+                        • Add voice synthesis and audio processing<br>
+                        • Create video understanding and generation capabilities<br>
+                        • Build a unified interface for multimodal content creation<br>
+                        <strong>Deliverable:</strong> Comprehensive multimodal AI platform for content creators
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>Transfer Learning & Model Distillation</td>
+                    <td>
+                        <strong>Transfer Learning:</strong> Pretraining vs Fine-tuning, feature extraction vs full fine-tuning, task adaptation<br>
+                        <strong>Distillation:</strong> Knowledge distillation (soft labels, logits), student-teacher models, performance vs size trade-off<br>
+                        <strong>Applications:</strong> Compressing LLMs, fast inference models, edge deployment<br>
+                    </td>
+                    <td>~8 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>Fine-Tuning & Customization</td>
+                    <td>
+                        <strong>Techniques:</strong> QLoRA, PEFT, Adapters, LoRA, prefix tuning<br>
+                        <strong>Emerging Trends:</strong> Mixture of Experts (MoE), State Space Models (Mamba), SLMs<br>
+                        <strong>Customization:</strong> Instruction tuning, DPO, PPO, GRPO, RLHF, domain adaptation<br>
+                        <strong>Challenges:</strong> Tokenizer alignment, catastrophic forgetting<br>
+                    </td>
+                    <td>~12–15 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>2 weeks</td>
+                    <td>Project 9: Custom LLM Fine-Tuning</td>
+                    <td>
+                        <strong>Project:</strong> Domain-Specific Language Model<br>
+                        • Fine-tune a pre-trained model for a specific domain (medical, legal, finance)<br>
+                        • Implement various fine-tuning techniques (LoRA, QLoRA, full fine-tuning)<br>
+                        • Create custom datasets and evaluation metrics<br>
+                        • Implement RLHF pipeline for human preference alignment<br>
+                        • Compare performance against base models<br>
+                        <strong>Deliverable:</strong> Custom fine-tuned model with comprehensive evaluation report
+                    </td>
+                    <td>~18 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>Data Engineering fundamentals for AI</td>
+                    <td>
+                        <strong>ETL Pipelines:</strong> Batch & streaming data, Airflow basics<br>
+                        <strong>Quality & Versioning:</strong> Great Expectations, feature stores, data validation<br>
+                        <strong>Privacy & Simulation:</strong> Differential privacy, synthetic data generation<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>1 week</td>
+                    <td>AI Safety & Ethics</td>
+                    <td>
+                        <strong>Risks:</strong> Hallucinations, malicious use, adversarial prompts<br>
+                        <strong>Alignment:</strong> Constitutional AI, red teaming, system monitoring<br>
+                        <strong>Governance:</strong> Risk classification, AI principles, transparency checklists<br>
+                    </td>
+                    <td>~8–10 hrs/week</td>
+                </tr>
+                <tr>
+                    <td>2 weeks</td>
+                    <td>LLMOps & Production Deployment</td>
+                    <td>
+                        <strong>Deployment:</strong> Containerization (Docker, K8s), serverless inference<br>
+                        <strong>LLMOps Tools:</strong> TrueFoundry, BentoML, Ray Serve, Amazon SageMaker, Azure Machine Learning, Google Cloud Vertex AI, prompt versioning, model registry<br>
+                        <strong>Observability:</strong> Monitoring, logging, safety guardrails, rollback plans<br>
+                    </td>
+                    <td>~12–15 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 10: Production LLM System</td>
+                    <td>
+                        <strong>Project:</strong> Scalable AI-Powered SaaS Platform<br>
+                        • Build a complete production system with user authentication, billing & analytics<br>
+                        • Implement model serving with auto-scaling and load balancing<br>
+                        • Add comprehensive monitoring, logging & alerting<br>
+                        • Create CI/CD pipeline for model deployment and updates<br>
+                        • Implement safety guardrails and content filtering<br>
+                        • Build admin dashboard for system management<br>
+                        <strong>Deliverable:</strong> Production-ready SaaS platform with full LLMOps pipeline
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
+                <tr class="project-row">
+                    <td><span class="project-icon">🚀</span>1 week</td>
+                    <td>Project 11: Capstone Project</td>
+                    <td>
+                        <strong>Project:</strong> End-to-End AI Solution for Real Problem<br>
+                        • Choose a complex real-world problem and build a comprehensive AI solution<br>
+                        • Integrate multiple technologies: LLMs, RAG, agents, multimodal AI, custom models<br>
+                        • Implement full production pipeline with monitoring, safety & compliance<br>
+                        • Create detailed documentation, technical blog posts & presentation<br>
+                        • Open source the project and contribute to AI community<br>
+                        <strong>Deliverable:</strong> Portfolio worthy project demonstrating expertise of GenAI stack
+                    </td>
+                    <td>~15 hrs/week</td>
+                </tr>
             </tbody>
         </table>
-    </div>
-</body>
-</html>
+
+        <!-- Mobile Card View -->
+        <div class="mobile-cards">
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~5 hrs/week</div>
+                </div>
+                <div class="focus">AI Literacy</div>
+                <div class="skills">
+                    <strong>GenAI Capabilities:</strong> What LLMs can do - text, code, image generation, summarization, reasoning
+                    <strong>Limitations:</strong> Hallucination, bias, context length, factuality issues
+                    <strong>Critical Evaluation:</strong> How to assess AI output for reliability and usefulness
+                    <strong>Tool Awareness:</strong> Overview of major LLMs (ChatGPT, Gemini, Claude, DeepSeek, Copilot, HuggingFace, etc.
+                    <strong>Ethical Considerations:</strong> AI safety, data privacy, fairness, misuse
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2.5 weeks</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">Technical Foundation</div>
+                <div class="skills">
+                    <strong>Programming & Tools:</strong> Python (list comprehensions, decorators, OOP, error handling), Git & GitHub basics
+                    <strong>APIs & Services:</strong> REST API creation and usage (requests, FastAPI/Flask basics), JSON handling
+                    <strong>Data Handling & Visualization:</strong> Batch & Streaming Data, Pandas, NumPy, Matplotlib/Seaborn, CSV/JSON file I/O
+                    <strong>Databases:</strong> SQL fundamentals, Intro to NoSQL
+                    <strong>DevOps & Deployment:</strong> Cloud basics (AWS or GCP or Azure overview), Docker intro (build, run containers)
+                    <strong>Optional:</strong> Basic scripting for automation, using Postman, command-line stuff
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~10 hrs/week</div>
+                </div>
+                <div class="focus">Project 1: API Integration & Data Pipeline</div>
+                <div class="skills">
+                    <strong>Project:</strong> Personal Data Analytics Dashboard
+                    • Build a Python application that fetches data from multiple APIs (weather, news, social media)
+                    • Create data processing pipeline with Pandas
+                    • Store data in SQLite database
+                    • Build visualizations with Matplotlib/Seaborn
+                    • Deploy using Docker and host on cloud platform
+                    <strong>Deliverable:</strong> Deployed web dashboard with automated data updates
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">3 weeks</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">Math for ML & AI</div>
+                <div class="skills">
+                    <strong>Phase 1 - Core:</strong>
+                    <strong>Linear Algebra:</strong> Dot product, matrix ops
+                    <strong>Calculus:</strong> Derivatives, gradients, chain rule
+                    <strong>Probability & Statistics:</strong> Descriptive stats, conditional probability, independence, Bayes' rule, expectations, basic distributions
+                    <strong>Optimization:</strong> Gradient descent, learning rate, regularization basics
+                    <strong>Applied Math:</strong> Softmax, loss functions, backprop basics
+
+                    Continue to <strong>Phases 2 and 3</strong> if you are interested in ML and research oriented roles
+
+                    <strong>Phase 2 - Intermediate:</strong>
+                    <strong>Linear Algebra:</strong> Matrix norms, projections, decomposition
+                    <strong>Calculus:</strong> Partial derivatives, multivariable calculus, Markov chains/processes
+                    <strong>Probability & Statistics:</strong> Marginal probability, statistical tests, confidence intervals, hypothesis testing
+                    <strong>Optimization:</strong> Adam, learning rate schedulers, L1/L2 regularization
+                    <strong>Applied Math:</strong> Numerical stability, gradient clipping
+
+                    <strong>Phase 3 - Advanced (Research Level):</strong>
+                    <strong>Linear Algebra:</strong> Eigenspaces, SVD, tensor ops, PCA
+                    <strong>Calculus:</strong> Jacobian, Hessian, Taylor approximations
+                    <strong>Probability & Statistics:</strong> Entropy, KL divergence, information theory, statistical estimation, advanced distributions
+                    <strong>Optimization:</strong> Convex and constrained optimization (Lagrangian, KKT)
+                    <strong>Applied Math:</strong> Full backprop, loss design, second-order methods
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">Machine Learning Fundamentals</div>
+                <div class="skills">
+                    <strong>Core Concepts:</strong> Supervised vs unsupervised learning, classification vs regression, training/validation/test splits, overfitting & underfitting
+                    <strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding, outlier detection
+                    <strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC, MAE, MSE, RMSE, R-squared, adjusted R-squared), cross-validation, grid search
+                    <strong>Optional:</strong> Intro to ML pipelines, model persistence (pickle, joblib), basic interpretability (SHAP, LIME)
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~12 hrs/week</div>
+                </div>
+                <div class="focus">Project 2: End-to-End ML Pipeline</div>
+                <div class="skills">
+                    <strong>Project:</strong> Predictive Analytics System
+                    • Choose a real-world dataset (house prices, stock prediction, customer churn)
+                    • Build complete ML pipeline: data cleaning, feature engineering, model training
+                    • Compare multiple algorithms (Random Forest, XGBoost, Linear Regression)
+                    • Implement model evaluation and interpretability (SHAP)
+                    • Create web interface for predictions using Flask/FastAPI
+                    <strong>Deliverable:</strong> Deployed ML web application with model comparison dashboard
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">NLP Fundamentals & Text Processing</div>
+                <div class="skills">
+                    <strong>Text Preprocessing & Normalization:</strong> Lowercasing, stemming, lemmatization, stopword removal, regex-based cleaning
+                    <strong>Tokenization Techniques:</strong> Word-level, subword-level (BPE, WordPiece, SentencePiece), sentence-level
+                    <strong>Word Representations:</strong> Word embeddings (Word2Vec, GloVe, FastText), one-hot encoding, bag-of-words
+                    <strong>Statistical Language Tools:</strong> n-grams, language modeling basics, TF-IDF, cosine similarity
+                    <strong>Linguistic Processing:</strong> Named Entity Recognition (NER), Part-of-Speech tagging, syntactic parsing
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">Deep Learning & Neural Networks</div>
+                <div class="skills">
+                    <strong>Neural Network Basics:</strong> Perceptrons, multi-layer networks, forward & backward passes, loss surfaces
+                    <strong>Training Essentials:</strong> Backpropagation algorithm, optimizers (SGD, Adam, AdamW), learning rate tuning
+                    <strong>Model Regularization:</strong> Dropout, batch normalization, early stopping
+                    <strong>Frameworks:</strong> PyTorch & TensorFlow (basic model building, training loops)
+                    <strong>Hardware:</strong> GPU/TPU fundamentals, CUDA basics, memory management
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~12 hrs/week</div>
+                </div>
+                <div class="focus">Project 3: Neural Network from Scratch</div>
+                <div class="skills">
+                    <strong>Project:</strong> Custom Neural Network Implementation
+                    • Implement a neural network from scratch in NumPy (no PyTorch/TensorFlow)
+                    • Build forward pass, backpropagation & gradient descent
+                    • Train on MNIST or simple classification dataset
+                    • Compare performance with PyTorch/TensorFlow implementation
+                    • Visualize training process, loss curves & learned features
+                    <strong>Deliverable:</strong> Jupyter notebook with detailed implementation and analysis
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">Sequence Models: RNNs, LSTMs, GRUs</div>
+                <div class="skills">
+                    <strong>Foundations:</strong> Understanding sequential data, time-step dependencies, vanishing/exploding gradients
+                    <strong>Architectures:</strong> RNNs, LSTMs (gates, cell state), GRUs, encoder-decoder setup
+                    <strong>Applications:</strong> Sequence classification, text generation, sentiment analysis, time series
+                    <strong>Limitations:</strong> Short-term memory, lack of parallelism, gradient instability
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~12–15 hrs/week</div>
+                </div>
+                <div class="focus">Deep Transformer Architecture</div>
+                <div class="skills">
+                    <strong>Core Components:</strong> Self-attention, multi-head attention, positional encoding
+                    <strong>Architecture Types:</strong> Encoder-decoder vs decoder-only, layer normalization, residual connections
+                    <strong>Variants & Models:</strong> BERT-like (Encoder), GPT-like Modern LLMs (Decoder or Autoregressive), BART (Encoder-Decoder) — structural differences
+                    <strong>FFNs & Optimization:</strong> Feedforward layers, initialization, gradient flow
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>2 weeks</div>
+                    <div class="effort">~15 hrs/week</div>
+                </div>
+                <div class="focus">Project 4: Mini Transformer Implementation</div>
+                <div class="skills">
+                    <strong>Project:</strong> Build a Mini-GPT
+                    • Implement a small transformer model from scratch in PyTorch
+                    • Include self-attention, multi-head attention & positional encoding
+                    • Train on a simple text generation task (Shakespeare, poetry, code)
+                    • Experiment with different architectures (encoder-only vs decoder-only)
+                    • Visualize attention patterns and generated text quality
+                    <strong>Deliverable:</strong> Working mini-transformer with text generation demo
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">Computer Vision Fundamentals</div>
+                <div class="skills">
+                    <strong>Basics:</strong> Image formats, channels, filters, color spaces
+                    <strong>Neural Approaches:</strong> CNN architecture, convolution layers, pooling, receptive fields
+                    <strong>Toolkits:</strong> OpenCV basics, torchvision, image augmentation
+                    <strong>Modern Trends:</strong> Vision Transformers (ViTs), classification vs detection
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">LLM Fundamentals & Training</div>
+                <div class="skills">
+                    <strong>Training Paradigms:</strong> Pre-training vs fine-tuning, supervised vs unsupervised
+                    <strong>Objectives:</strong> Next-token prediction, masked language modeling (MLM), autoregressive modeling
+                    <strong>Scaling Laws:</strong> Model size, dataset size, compute-efficiency tradeoffs
+                    <strong>Modes:</strong> Training vs inference, parameter freezing, eval vs generation
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~6–8 hrs/week</div>
+                </div>
+                <div class="focus">Prompt Engineering</div>
+                <div class="skills">
+                    <strong>Core Techniques:</strong> Zero-shot, few-shot, chain-of-thought (CoT) etc prompting
+                    <strong>Control Mechanisms:</strong> Role-based prompts, formatting, style conditioning
+                    <strong>Decoding Strategies:</strong> Temperature, top-k/top-p sampling, repetition penalties
+                    <strong>Integration:</strong> OpenAI, Claude, Gemini, DeepSeek, Qwen, KIMI K2, Ollama APIs, LangChain/Llamaindex prompt templates
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">LLM APIs & Local Models</div>
+                <div class="skills">
+                    <strong>Core Concepts:</strong> Prompting via LLM APIs, local vs hosted models, inference pipelines, model selection
+                    <strong>Hands-on Tools:</strong> Ollama (local LLMs like LLaMA, Mistral), Hugging Face Transformers & Inference API, OpenAI/Gemini/Claude/DeepSeek/Groq etc API usage
+                    <strong>Code Skills:</strong> Python scripts for text generation, embeddings, chat interfaces, model loading, token handling, streaming responses
+                    <strong>Deployment Context:</strong> Running models locally (Ollama), hybrid setups using HF endpoints, managing latency & cost trade-offs
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~12 hrs/week</div>
+                </div>
+                <div class="focus">Project 5: Advanced Prompt Engineering Suite</div>
+                <div class="skills">
+                    <strong>Project:</strong> Multi-LLM Prompt Optimization Platform
+                    • Build a system that tests prompts across multiple LLM APIs
+                    • Implement various prompting techniques (CoT, few-shot, role-playing)
+                    • Create automatic prompt optimization using genetic algorithms
+                    • Build evaluation metrics for prompt effectiveness
+                    • Design a web interface for prompt testing and comparison
+                    <strong>Deliverable:</strong> Prompt engineering platform with automated optimization
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">RAG Systems & Knowledge Management</div>
+                <div class="skills">
+                    <strong>Core Architecture:</strong> Chunking techniques, retrieval-augmented generation design
+                    <strong>Embedding & Storage:</strong> Embedding models, vector databases (FAISS, ChromaDB, Pinecone, Weaviate, Milvus, AWS S3 Vector, AWS Opensearch, VertexAI Vector Search, Azure CosmosDB, Azure AI Search)
+                    <strong>Retrieval:</strong> Similarity search, hybrid retrieval (dense + sparse), contextual injection
+                    <strong>Tools & Integrations:</strong> LangChain, LlamaIndex, metadata filtering
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~15 hrs/week</div>
+                </div>
+                <div class="focus">Project 6: Enterprise RAG System</div>
+                <div class="skills">
+                    <strong>Project:</strong> Intelligent Document Q&A System using different LLM APIs or Ollama/Huggingface based API
+                    • Build a RAG system for a specific domain (legal docs, research papers, company docs)
+                    • Implement advanced chunking strategies and embedding optimization
+                    • Deploy multiple vector databases and compare performance
+                    • Add conversation memory and multi-turn dialogue capability
+                    • Include citation tracking and source verification
+                    • Build admin dashboard for document management and analytics
+                    <strong>Deliverable:</strong> Production-ready RAG system with web interface
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">LLM Evaluation & Benchmarking</div>
+                <div class="skills">
+                    <strong>Benchmarks:</strong> MMLU, HELM, TruthfulQA, ARC, HellaSwag
+                    <strong>Metrics:</strong> BLEU, ROUGE, BERTScore, perplexity, human eval scoring
+                    <strong>Advanced Eval:</strong> Hallucination detection, fairness testing, bias analysis
+                    <strong>Automation:</strong> Evaluation pipelines, CI/CD for LLMs, A/B test setup
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">Agentic AI Systems</div>
+                <div class="skills">
+                    <strong>Core Concepts:</strong> Autonomous & collaborative multi-agent workflows, planning & reasoning loops, tool usage via function/API calls
+                    <strong>Frameworks:</strong> LangChain Agents, LangGraph (for stateful agent flows), AutoGen (LLM orchestration), CrewAI (role-based agents), SmolAgent (lightweight agents)
+                    <strong>State & Memory:</strong> Episodic memory, semantic memory, shared context, vector-based memory stores
+                    <strong>Model Context Protocol:</strong> Standardized communication interface between agents and LLMs (e.g., OpenAI's MCP for structured multi-turn agent planning)
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~15 hrs/week</div>
+                </div>
+                <div class="focus">Project 7: Multi-Agent AI Workflow</div>
+                <div class="skills">
+                    <strong>Project:</strong> AI Research Assistant Team
+                    • Create a multi-agent system with specialized roles (researcher, analyst, writer, critic)
+                    • Implement tool-calling capabilities (web search, data analysis, document generation)
+                    • Build coordination mechanisms between agents
+                    • Add memory persistence and learning capabilities
+                    • Create a workflow for complex research tasks
+                    <strong>Deliverable:</strong> Multi-agent system that can autonomously complete research projects
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~10–12 hrs/week</div>
+                </div>
+                <div class="focus">Multimodal</div>
+                <div class="skills">
+                    <strong>Image Models:</strong> DALL·E, Stable Diffusion, Midjourney concepts
+                    <strong>VLMs:</strong> CLIP, Flamingo, BLIP, visual grounding, captioning
+                    <strong>Frontiers VLMs:</strong> Vision-Language Models (GPT-4o, Gemini 2.5 Pro, Claude 4/3.7/3.5 Sonnet, Qwen 2.5 VL, Llama 3.2 Vision, DeepSeek-VL, PaliGemma-2, Phi-4 Multimodal), audio-video-text models, neuro-symbolic AI
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>1 week</div>
+                    <div class="effort">~15 hrs/week</div>
+                </div>
+                <div class="focus">Project 8: Multimodal AI Application</div>
+                <div class="skills">
+                    <strong>Project:</strong> AI Content Creation Studio
+                    • Build an application that processes text, images, audio & video
+                    • Implement image generation, editing & analysis
+                    • Add voice synthesis and audio processing
+                    • Create video understanding and generation capabilities
+                    • Build a unified interface for multimodal content creation
+                    <strong>Deliverable:</strong> Comprehensive multimodal AI platform for content creators
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8 hrs/week</div>
+                </div>
+                <div class="focus">Transfer Learning & Model Distillation</div>
+                <div class="skills">
+                    <strong>Transfer Learning:</strong> Pretraining vs Fine-tuning, feature extraction vs full fine-tuning, task adaptation
+                    <strong>Distillation:</strong> Knowledge distillation (soft labels, logits), student-teacher models, performance vs size trade-off
+                    <strong>Applications:</strong> Compressing LLMs, fast inference models, edge deployment
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~12–15 hrs/week</div>
+                </div>
+                <div class="focus">Fine-Tuning & Customization</div>
+                <div class="skills">
+                    <strong>Techniques:</strong> QLoRA, PEFT, Adapters, LoRA, prefix tuning
+                    <strong>Emerging Trends:</strong> Mixture of Experts (MoE), State Space Models (Mamba), SLMs
+                    <strong>Customization:</strong> Instruction tuning, DPO, PPO, GRPO, RLHF, domain adaptation
+                    <strong>Challenges:</strong> Tokenizer alignment, catastrophic forgetting
+                </div>
+            </div>
+
+            <div class="roadmap-item project">
+                <div class="item-header">
+                    <div class="duration"><span class="project-icon">🚀</span>2 weeks</div>
+                    <div class="effort">~18 hrs/week</div>
+                </div>
+                <div class="focus">Project 9: Custom LLM Fine-Tuning</div>
+                <div class="skills">
+                    <strong>Project:</strong> Domain-Specific Language Model
+                    • Fine-tune a pre-trained model for a specific domain (medical, legal, finance)
+                    • Implement various fine-tuning techniques (LoRA, QLoRA, full fine-tuning)
+                    • Create custom datasets and evaluation metrics
+                    • Implement RLHF pipeline for human preference alignment
+                    • Compare performance against base models
+                    <strong>Deliverable:</strong> Custom fine-tuned model with comprehensive evaluation report
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">Data Engineering fundamentals for AI</div>
+                <div class="skills">
+                    <strong>ETL Pipelines:</strong> Batch & streaming data, Airflow basics
+                    <strong>Quality & Versioning:</strong> Great Expectations, feature stores, data validation
+                    <strong>Privacy & Simulation:</strong> Differential privacy, synthetic data generation
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">1 week</div>
+                    <div class="effort">~8–10 hrs/week</div>
+                </div>
+                <div class="focus">AI Safety & Ethics</div>
+                <div class="skills">
+                    <strong>Risks:</strong> Hallucinations, malicious use, adversarial prompts
+                    <strong>Alignment:</strong> Constitutional AI, red teaming, system monitoring
+                    <strong>Governance:</strong> Risk classification, AI principles, transparency checklists
+                </div>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="item-header">
+                    <div class="duration">2 weeks</div>
+                    <div class="effort">~12–15 hrs/week</div>
+                </div>
+                <div class="focus">LLMOps & Production Deployment</div>
+                <div class="skills">
+                    <strong>Deployment:</strong> Containerization (Docker, K8s), serverless inference
+                    <strong>LLMOps Tools:</strong> TrueFoundry, BentoML, Ray Serve, Amazon SageMaker, Azure Machine Learning, Google Cloud Vertex AI, prompt versioning, model registry
+                    <strong>Observability:</strong> Monitoring, logging, safety guardrails, rollback plans
+                </div
