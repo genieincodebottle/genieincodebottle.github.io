@@ -103,7 +103,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Duration<br/> (~10 Months)</th>
+                    <th>Duration<br/> (~10.5 Months)</th>
                     <th>Focus</th>
                     <th>Skills & Projects</th>
                     <th>Effort Estimate</th>
@@ -137,7 +137,7 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 1: API Integration & Data Pipeline</td>
+					<td>Project 1: API Integration & Data Pipeline</td>
 					<td>
 						<strong>Project:</strong> Personal Data Analytics Dashboard<br>
 						• Build a Python application that fetches data from multiple APIs (weather, news, social media)<br>
@@ -183,15 +183,15 @@
 					<td>Machine Learning Fundamentals</td>
 					<td>
 						<strong>Core Concepts:</strong> Supervised vs unsupervised learning, classification vs regression, training/validation/test splits, overfitting & underfitting<br>
-						<strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding<br>
-						<strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC), cross-validation, grid search<br>
+						<strong>Data Prep:</strong> Feature engineering basics, normalization/standardization, handling missing data, one-hot encoding, outlier detection<br>
+						<strong>Modeling & Evaluation:</strong> scikit-learn workflows, model selection, evaluation metrics (accuracy, precision, recall, F1, ROC-AUC, MAE, MSE, RMSE, R-squared, adjusted R-squared), cross-validation, grid search<br>
 						<strong>Optional:</strong>  Intro to ML pipelines, model persistence (pickle, joblib), basic interpretability (SHAP, LIME)
 					</td>
 					<td>~8–10 hrs/week</td>
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 2: End-to-End ML Pipeline</td>
+					<td>Project 2: End-to-End ML Pipeline</td>
 					<td>
 						<strong>Project:</strong> Predictive Analytics System<br>
 						• Choose a real-world dataset (house prices, stock prediction, customer churn)<br>
@@ -229,14 +229,14 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 3: Neural Network from Scratch</td>
+					<td>Project 3: Neural Network from Scratch</td>
 					<td>
 						<strong>Project:</strong> Custom Neural Network Implementation<br>
 						• Implement a neural network from scratch in NumPy (no PyTorch/TensorFlow)<br>
-						• Build forward pass, backpropagation, and gradient descent<br>
+						• Build forward pass, backpropagation & gradient descent<br>
 						• Train on MNIST or simple classification dataset<br>
 						• Compare performance with PyTorch/TensorFlow implementation<br>
-						• Visualize training process, loss curves, and learned features<br>
+						• Visualize training process, loss curves & learned features<br>
 						<strong>Deliverable:</strong> Jupyter notebook with detailed implementation and analysis
 					</td>
 					<td>~12 hrs/week</td>
@@ -265,11 +265,11 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>2 weeks</td>
-					<td>Project Phase 4: Mini Transformer Implementation</td>
+					<td>Project 4: Mini Transformer Implementation</td>
 					<td>
 						<strong>Project:</strong> Build a Mini-GPT<br>
 						• Implement a small transformer model from scratch in PyTorch<br>
-						• Include self-attention, multi-head attention, and positional encoding<br>
+						• Include self-attention, multi-head attention & positional encoding<br>
 						• Train on a simple text generation task (Shakespeare, poetry, code)<br>
 						• Experiment with different architectures (encoder-only vs decoder-only)<br>
 						• Visualize attention patterns and generated text quality<br>
@@ -311,9 +311,20 @@
 					</td>
 					<td>~6–8 hrs/week</td>
 				</tr>
+				<tr>
+					<td>1 week</td>
+					<td>LLM APIs & Local Models</td>
+					<td>
+						<strong>Core Concepts:</strong> Prompting via LLM APIs, local vs hosted models, inference pipelines, model selection<br>
+						<strong>Hands-on Tools:</strong> Ollama (local LLMs like LLaMA, Mistral), Hugging Face Transformers & Inference API, OpenAI/Gemini/Claude/DeepSeek/Groq etc API usage<br>
+						<strong>Code Skills:</strong> Python scripts for text generation, embeddings, chat interfaces, model loading, token handling, streaming responses<br>
+						<strong>Deployment Context:</strong> Running models locally (Ollama), hybrid setups using HF endpoints, managing latency & cost trade-offs<br>
+					</td>
+					<td>~8–10 hrs/week</td>
+				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 5: Advanced Prompt Engineering Suite</td>
+					<td>Project 5: Advanced Prompt Engineering Suite</td>
 					<td>
 						<strong>Project:</strong> Multi-LLM Prompt Optimization Platform<br>
 						• Build a system that tests prompts across multiple LLM APIs<br>
@@ -339,9 +350,9 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 6: Enterprise RAG System</td>
+					<td>Project 6: Enterprise RAG System</td>
 					<td>
-						<strong>Project:</strong> Intelligent Document Q&A System<br>
+						<strong>Project:</strong> Intelligent Document Q&A System using different LLM APIs or Ollama/Huggingface based API<br>
 						• Build a RAG system for a specific domain (legal docs, research papers, company docs)<br>
 						• Implement advanced chunking strategies and embedding optimization<br>
 						• Deploy multiple vector databases and compare performance<br>
@@ -365,17 +376,18 @@
 				</tr>
 				<tr>
 					<td>2 weeks</td>
-					<td>Advanced Agentic AI Systems</td>
+					<td>Agentic AI Systems</td>
 					<td>
-						<strong>Core Concepts:</strong> Multi-agent systems, planning loops, tool use via function calls<br>
-						<strong>Frameworks:</strong> LangChain Agents, LangGraph, AutoGen, crewAI, SmolAgent<br>
-						<strong>State & Memory:</strong> Episodic memory, shared context, memory stores<br>
+						<strong>Core Concepts:</strong> Autonomous & collaborative multi-agent workflows, planning & reasoning loops, tool usage via function/API calls<br>
+						<strong>Frameworks:</strong> LangChain Agents, LangGraph (for stateful agent flows), AutoGen (LLM orchestration), CrewAI (role-based agents), SmolAgent (lightweight agents)<br>
+						<strong>State & Memory:</strong> Episodic memory, semantic memory, shared context, vector-based memory stores<br>
+						<strong>Model Context Protocol:</strong> Standardized communication interface between agents and LLMs (e.g., OpenAI's MCP for structured multi-turn agent planning)<br>
 					</td>
 					<td>~10–12 hrs/week</td>
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 weeks</td>
-					<td>Project Phase 7: Multi-Agent AI Workflow</td>
+					<td>Project 7: Multi-Agent AI Workflow</td>
 					<td>
 						<strong>Project:</strong> AI Research Assistant Team<br>
 						• Create a multi-agent system with specialized roles (researcher, analyst, writer, critic)<br>
@@ -399,11 +411,11 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 8: Multimodal AI Application</td>
+					<td>Project 8: Multimodal AI Application</td>
 					<td>
 						<strong>Project:</strong> AI Content Creation Studio<br>
-						• Build an application that processes text, images, audio, and video<br>
-						• Implement image generation, editing, and analysis<br>
+						• Build an application that processes text, images, audio & video<br>
+						• Implement image generation, editing & analysis<br>
 						• Add voice synthesis and audio processing<br>
 						• Create video understanding and generation capabilities<br>
 						• Build a unified interface for multimodal content creation<br>
@@ -423,7 +435,7 @@
 				</tr>
 				<tr>
 					<td>2 weeks</td>
-					<td>Advanced Fine-Tuning & Customization</td>
+					<td>Fine-Tuning & Customization</td>
 					<td>
 						<strong>Techniques:</strong> QLoRA, PEFT, Adapters, LoRA, prefix tuning<br>
 						<strong>Emerging Trends:</strong> Mixture of Experts (MoE), State Space Models (Mamba), SLMs<br>
@@ -434,7 +446,7 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>2 weeks</td>
-					<td>Project Phase 9: Custom LLM Fine-Tuning</td>
+					<td>Project 9: Custom LLM Fine-Tuning</td>
 					<td>
 						<strong>Project:</strong> Domain-Specific Language Model<br>
 						• Fine-tune a pre-trained model for a specific domain (medical, legal, finance)<br>
@@ -478,12 +490,12 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 10: Production LLM System</td>
+					<td>Project 10: Production LLM System</td>
 					<td>
 						<strong>Project:</strong> Scalable AI-Powered SaaS Platform<br>
-						• Build a complete production system with user authentication, billing, and analytics<br>
+						• Build a complete production system with user authentication, billing & analytics<br>
 						• Implement model serving with auto-scaling and load balancing<br>
-						• Add comprehensive monitoring, logging, and alerting<br>
+						• Add comprehensive monitoring, logging & alerting<br>
 						• Create CI/CD pipeline for model deployment and updates<br>
 						• Implement safety guardrails and content filtering<br>
 						• Build admin dashboard for system management<br>
@@ -493,15 +505,15 @@
 				</tr>
 				<tr class="project-row">
 					<td><span class="project-icon"></span>1 week</td>
-					<td>Project Phase 11: Capstone Project</td>
+					<td>Project 11: Capstone Project</td>
 					<td>
 						<strong>Project:</strong> End-to-End AI Solution for Real Problem<br>
 						• Choose a complex real-world problem and build a comprehensive AI solution<br>
 						• Integrate multiple technologies: LLMs, RAG, agents, multimodal AI, custom models<br>
-						• Implement full production pipeline with monitoring, safety, and compliance<br>
-						• Create detailed documentation, technical blog posts, and presentation<br>
+						• Implement full production pipeline with monitoring, safety & compliance<br>
+						• Create detailed documentation, technical blog posts & presentation<br>
 						• Open source the project and contribute to AI community<br>
-						<strong>Deliverable:</strong> Portfolio-worthy project demonstrating mastery of GenAI stack
+						<strong>Deliverable:</strong> Portfolio worthy project demonstrating expertise of GenAI stack
 					</td>
 					<td>~15 hrs</td>
 				</tr>
