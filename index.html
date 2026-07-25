@@ -32,282 +32,140 @@
       ]
     }
     </script>
-    <title>🗺️ GenAI Comprehensive Learning Roadmap</title>
-    <style>
-        * {
-            box-sizing: border-box;
+    <title>🗺️ GenAI Learning Roadmap 2026 | genieincodebottle (Rajesh Srivastava)</title>
+        <style>
+        :root{
+          --blue:#2563eb;--blue-d:#1d4ed8;--blue-t:#eff6ff;
+          --em:#059669;--em-l:#10b981;--em-t:#ecfdf5;
+          --ink:#0f172a;--body:#334155;--muted:#64748b;
+          --line:#e2e8f0;--line-2:#eef2f6;
+          --bg:#f1f5f9;--card:#ffffff;
+          --radius:14px;--shadow:0 1px 2px rgba(15,23,42,.04),0 10px 30px rgba(15,23,42,.06);
         }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+        a{color:var(--blue)}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 10px;
-            background-color: #f5f7fa;
-            color: #333;
-            font-size: 14px;
+        .topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+        .topbar .brand{font-weight:800;color:var(--ink);font-size:16px;letter-spacing:-.02em;text-decoration:none}
+        .topbar .brand span{color:var(--blue)}
+        .topbar .nav{display:flex;align-items:center;gap:20px}
+        .topbar .nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+        .topbar .nav a:hover{color:var(--ink)}
+        .btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:10px;box-shadow:0 1px 2px rgba(37,99,235,.35);transition:background .15s,transform .15s}
+        .btn:hover{background:var(--blue-d);transform:translateY(-1px)}
+        .btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--line);box-shadow:none}
+        .btn.ghost:hover{border-color:var(--blue)}
+
+        .container{max-width:1180px;margin:0 auto;padding:0 22px}
+
+        .hero{text-align:center;padding:56px 20px 40px}
+        .hero .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);background:var(--blue-t);padding:6px 13px;border-radius:999px;margin-bottom:20px}
+        .hero h1{font-size:clamp(30px,5.4vw,48px);line-height:1.08;letter-spacing:-.025em;color:var(--ink);margin:0 0 16px;font-weight:800}
+        .hero p.sub{font-size:clamp(15px,2.4vw,19px);color:var(--muted);max-width:660px;margin:0 auto 26px;line-height:1.55}
+        .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+        .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:760px;margin:0 auto}
+        .chips a{font-size:13px;font-weight:500;color:var(--body);background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:999px;text-decoration:none;transition:border-color .15s,color .15s}
+        .chips a:hover{border-color:var(--blue);color:var(--blue)}
+        .stats{display:flex;gap:44px;justify-content:center;flex-wrap:wrap;margin:38px auto 0;padding-top:30px;border-top:1px solid var(--line)}
+        .stat b{display:block;font-size:26px;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+        .stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+
+        .roadmap-head{margin:48px 0 20px;text-align:center}
+        .roadmap-head h2{font-size:clamp(22px,3.4vw,30px);color:var(--ink);letter-spacing:-.02em;margin:0 0 8px;font-weight:800}
+        .roadmap-head p{color:var(--muted);margin:0;font-size:15px}
+
+        .desktop-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+        .desktop-table th,.desktop-table td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-2)}
+        .desktop-table thead th{background:#f8fafc;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+        .desktop-table tbody tr:last-child td{border-bottom:none}
+        .desktop-table tbody tr:hover{background:#f8fafc}
+        .desktop-table td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;font-size:14px}
+        .desktop-table td:nth-child(2){font-weight:600;color:var(--ink)}
+        .desktop-table td:last-child{color:var(--muted);white-space:nowrap;font-size:13px}
+        .desktop-table .project-row{background:var(--em-t)}
+        .desktop-table .project-row:hover{background:#e6f8f1}
+        .desktop-table .project-row td:first-child{color:var(--em)}
+        .skills{line-height:1.55;font-size:13.5px;color:var(--body)}
+        .skills strong{color:var(--ink);display:block;margin:12px 0 4px;font-size:13.5px}
+        .skills strong:first-child{margin-top:0}
+        .skills a{color:var(--blue);text-decoration:none}
+        .skills a:hover{text-decoration:underline}
+        .skills ul{padding-left:18px;margin:6px 0}
+
+        .aiml-inline{display:block;margin-top:11px;padding:9px 12px;background:var(--blue-t);border:1px solid #dbeafe;border-radius:8px;font-size:12.5px;color:var(--body)}
+        .aiml-inline a{color:var(--blue);font-weight:700;text-decoration:none}
+        .aiml-inline a:hover{text-decoration:underline}
+
+        .mobile-cards{display:none}
+        .roadmap-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:16px;padding:18px;box-shadow:var(--shadow);border-left:3px solid var(--blue)}
+        .roadmap-item.project{border-left-color:var(--em);background:var(--em-t)}
+        .item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+        .duration{font-weight:700;color:var(--blue);font-size:15px}
+        .project .duration{color:var(--em)}
+        .effort{background:var(--blue-t);padding:5px 12px;border-radius:999px;font-size:12px;color:var(--blue);font-weight:600}
+        .project .effort{background:#fff;color:var(--em);border:1px solid #a7f3d0}
+        .focus{font-weight:700;font-size:16px;margin-bottom:10px;color:var(--ink)}
+
+        .site-footer{background:var(--ink);color:#cbd5e1;margin-top:56px;padding:48px 22px 32px}
+        .footer-inner{max-width:1180px;margin:0 auto}
+        .footer-cta{text-align:center;padding-bottom:34px;margin-bottom:30px;border-bottom:1px solid #1e293b}
+        .footer-cta h3{color:#fff;font-size:clamp(20px,3vw,26px);margin:0 0 10px;letter-spacing:-.02em}
+        .footer-cta p{color:#94a3b8;margin:0 0 20px;font-size:15px}
+        .footer-cols{display:flex;flex-wrap:wrap;gap:44px;justify-content:center}
+        .footer-cols .col h4{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 12px}
+        .footer-cols .col a{display:block;color:#cbd5e1;text-decoration:none;font-size:14px;margin-bottom:9px}
+        .footer-cols .col a:hover{color:#fff}
+        .footer-note{text-align:center;color:#64748b;font-size:13px;margin-top:34px}
+
+        @media (max-width:820px){
+          .desktop-table{display:none}
+          .mobile-cards{display:block}
+          .topbar .nav a:not(.btn){display:none}
+          .hero{padding:40px 16px 30px}
+          .stats{gap:30px}
         }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .roadmap-link {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .roadmap-link a {
-            color: #1a73e8;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-
-        .roadmap-link a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Desktop table styles */
-        .desktop-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            margin-top: 16px;
-        }
-
-        .desktop-table th, 
-        .desktop-table td {
-            padding: 14px 12px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
-
-        .desktop-table thead {
-            background-color: #f7f9fb;
-            font-weight: bold;
-            color: #222;
-        }
-
-        .desktop-table tr:hover {
-            background-color: #f0f4ff;
-        }
-
-        .desktop-table td:first-child, 
-        .desktop-table th:first-child {
-            color: #1a73e8;
-            font-weight: bold;
-        }
-
-        .desktop-table .project-row {
-            background-color: #f8fffe;
-            border-left: 4px solid #10b981;
-        }
-        
-        .desktop-table .project-row td:first-child {
-            color: #059669;
-        }
-
-        /* Mobile card styles */
-        .mobile-cards {
-            display: none;
-        }
-
-        .roadmap-item {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            padding: 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-left: 4px solid #1a73e8;
-        }
-
-        .roadmap-item.project {
-            border-left-color: #10b981;
-            background-color: #f8fffe;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .duration {
-            font-weight: bold;
-            color: #1a73e8;
-            font-size: 1em;
-        }
-
-        .project .duration {
-            color: #059669;
-        }
-
-        .effort {
-            background: #e8f4fd;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            color: #1a73e8;
-            font-weight: 500;
-        }
-
-        .project .effort {
-            background: #ecfdf5;
-            color: #059669;
-        }
-
-        .focus {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .skills {
-            line-height: 1.5;
-        }
-
-        .skills strong {
-            color: #000;
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        .skills strong:first-child {
-            margin-top: 0;
-        }
-
-        .project-icon {
-            color: #10b981;
-            margin-right: 8px;
-        }
-
-        /* Responsive breakpoint */
-        @media (max-width: 768px) {
-            body {
-                padding: 5px;
-                font-size: 13px;
-            }
-
-            .container {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin-bottom: 15px;
-            }
-
-            .desktop-table {
-                display: none;
-            }
-
-            .mobile-cards {
-                display: block;
-            }
-
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .duration {
-                font-size: 1.1em;
-            }
-
-            .focus {
-                font-size: 1.05em;
-                margin-bottom: 12px;
-            }
-
-            .effort {
-                align-self: flex-start;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 12px;
-            }
-
-            .container {
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 1.3em;
-            }
-
-            .roadmap-item {
-                padding: 15px;
-            }
-
-            .skills strong {
-                font-size: 0.95em;
-            }
-        }
-
-        strong {
-            color: #000;
-        }
+        strong{color:var(--ink)}
     </style>
-<style>
-.aiml-hero{background:#f8fffe;border:1px solid #d7e9e3;border-left:4px solid #1a73e8;border-radius:10px;padding:20px 22px;margin:0 0 22px}
-.aiml-hero p{margin:0 0 12px;color:#2c3e50;font-size:15px;line-height:1.55}
-.aiml-hero .lead{font-size:16px;color:#222}
-.aiml-btn{display:inline-block;background:#1a73e8;color:#fff;text-decoration:none;font-weight:600;padding:10px 18px;border-radius:8px;font-size:14px}
-.aiml-btn:hover{background:#1558b0}
-.aiml-links{font-size:14px;color:#555;margin-top:14px!important}
-.aiml-links a{color:#1a73e8;text-decoration:none;font-weight:600}
-.aiml-links a:hover{text-decoration:underline}
-.aiml-inline{display:block;margin-top:8px;padding:8px 10px;background:#ecfdf5;border-left:3px solid #059669;border-radius:4px;font-size:13px}
-.aiml-inline a{color:#059669;font-weight:600;text-decoration:none}
-.aiml-inline a:hover{text-decoration:underline}
-.site-footer{margin-top:36px;padding-top:22px;border-top:1px solid #e3e8ee;color:#555;font-size:14px}
-.site-footer h3{margin:0 0 8px;font-size:15px;color:#2c3e50}
-.site-footer .cols{display:flex;flex-wrap:wrap;gap:28px}
-.site-footer a{color:#1a73e8;text-decoration:none}
-.site-footer a:hover{text-decoration:underline}
-.site-footer .muted{color:#888;font-size:12px;margin-top:18px}
-</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🗺️ GenAI Comprehensive Roadmap (~10 Months)</h1>
+        <header class="topbar">
+        <a class="brand" href="/">GenAI <span>Roadmap</span></a>
+        <nav class="nav">
+            <a href="https://aimlcompanion.ai/roadmap">Interactive roadmap</a>
+            <a href="https://aimlcompanion.ai/glossary">Glossary</a>
+            <a class="btn" href="https://aimlcompanion.ai/">AI-ML Companion</a>
+        </nav>
+    </header>
 
-        <div class="aiml-hero">
-            <p class="lead">A 10-month, project-based path from GenAI foundations to production LLM systems, maintained by Rajesh Srivastava (<a href="https://github.com/genieincodebottle">genieincodebottle</a>).</p>
-            <p>Work through each phase below, then learn the same topics interactively - animated diagrams, quizzes and runnable Python - on AI-ML Companion.</p>
-            <a class="aiml-btn" href="https://aimlcompanion.ai/">Learn on AI-ML Companion</a>
-            <p class="aiml-links">Guides: <a href="https://aimlcompanion.ai/guide/what-is-rag">RAG</a> &middot; <a href="https://aimlcompanion.ai/guide/agentic-ai">Agentic AI</a> &middot; <a href="https://aimlcompanion.ai/guide/transformer-architecture">Transformers</a> &middot; <a href="https://aimlcompanion.ai/guide/generative-ai">Generative AI</a> &middot; <a href="https://aimlcompanion.ai/curriculum/interviewScenarios">Interview Q&amp;A</a> &middot; <a href="https://aimlcompanion.ai/roadmap">Full roadmap</a></p>
-        </div>
-        
-        <div class="roadmap-link">
-            <a href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md" target="_blank">
-                GenAI Roadmap for moderate learning pace with resource links
-            </a>
+    <div class="container">
+        <section class="hero">
+            <span class="eyebrow">2026 Edition</span>
+            <h1>The GenAI Engineering Roadmap</h1>
+            <p class="sub">A 10-month, project-based path from Generative AI foundations to production LLM systems. Work through each stage below, then learn every topic hands-on on AI-ML Companion.</p>
+            <div class="cta">
+                <a class="btn" href="https://aimlcompanion.ai/">Start learning on AI-ML Companion</a>
+                <a class="btn ghost" href="https://aimlcompanion.ai/roadmap">Full interactive roadmap</a>
+            </div>
+            <div class="chips">
+                <a href="https://aimlcompanion.ai/guide/what-is-rag">RAG</a>
+                <a href="https://aimlcompanion.ai/guide/agentic-ai">Agentic AI</a>
+                <a href="https://aimlcompanion.ai/guide/transformer-architecture">Transformers</a>
+                <a href="https://aimlcompanion.ai/guide/generative-ai">Generative AI</a>
+                <a href="https://aimlcompanion.ai/curriculum/interviewScenarios">Interview Q&amp;A</a>
+                <a href="https://aimlcompanion.ai/glossary">Glossary</a>
+            </div>
+            <div class="stats">
+                <div class="stat"><b>~10</b><span>Months</span></div>
+                <div class="stat"><b>9</b><span>Projects</span></div>
+                <div class="stat"><b>20+</b><span>Topics</span></div>
+            </div>
+        </section>
+
+        <div class="roadmap-head">
+            <h2>The 10-Month Plan</h2>
+            <p>Each stage builds on the last, from AI literacy to production LLMOps.</p>
         </div>
 
         <!-- Desktop Table View -->
@@ -353,9 +211,9 @@
 						<strong>Resources:</strong>
 						<ul style="padding-left: 16px;">
 							<li>Python: <a href="https://www.youtube.com/watch?v=kqtD5dpn9C8">Deep Learning Book (Chapter 2 & 4)</a>, <a href="https://www.youtube.com/watch?v=7eh4d6sabA0">Python-ML Crash Course</a></li>
-							<li>GitHub : <a href="https://skills.github.com/">Core crash course</a>, <a href=" https://www.coursera.org/learn/introduction-git-github">Coursera -Introduction git/github</a>, <a href="https://skills.github.com/">GitHub Skills</a></li>
+							<li>Git &amp; GitHub: <a href="https://www.atlassian.com/git/tutorials">Atlassian - Git Tutorials</a></li>
 							<li>Dev Env: <a href="https://www.dataquest.io/blog/jupyter-notebook-tutorial/">Jupyter Notebook Tutorial</a>, <a href="https://colab.research.google.com/">Google Colab - Intro</a>, <a href="https://www.kaggle.com/learn/intro-to-programming"> Kaggle - Intro</a>, <a href ="https://code.visualstudio.com/docs/python/python-tutorial">VSCode - Python Tutorial </a></li>
-							<li>APIs & Services: <a href="https://fastapi.tiangolo.com/tutorial/">FastAPI</a>, <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Flask</a>, <a href="https://requests.readthedocs.io/en/latest/">Request: Http for Humans</a>
+							<li>APIs & Services: <a href="https://fastapi.tiangolo.com/tutorial/">FastAPI</a>, <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Flask</a>, <a href="https://requests.readthedocs.io/en/latest/">Request: Http for Humans</a></li>
 							<li>Data Handling & Visualization: <a href="https://www.kaggle.com/learn/pandas">Kaggle Course-Pandas</a>, <a href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy: the absolute basics for beginners</a></li>
 							<li>Visualizations using Matplotlib/Seaborn/Plotly: <a href="">https://matplotlib.org/stable/tutorials/index.html</a>, <a href="https://seaborn.pydata.org/tutorial.html">Seaborn Official Tutorial</a>, <a href="https://plotly.com/python/getting-started/">Plotly Getting Started</a></li>
 							<li>Databases: <a href="https://www.kaggle.com/learn/intro-to-sql">Kaggle Courses - Intro to SQL</a></li>
@@ -406,7 +264,7 @@
                         <strong>Applied Math:</strong> Full backprop, loss design, second-order methods<br><br>
 						<strong>Resources:</strong>
 						<ul style="padding-left: 16px;">
-							<li>Math: <a href="https://www.deeplearningbook.org/">Deep Learning Book (Chapter 2 & 4)</a>, <a href="https://mml-book.github.io/book/mml-book.pdf">Mathematics for ML</a></li>
+							<li>Math: <a href="https://www.deeplearningbook.org/">Deep Learning Book (Chapter 2 &amp; 4)</a>, <a href="https://www.khanacademy.org/math/linear-algebra">Khan Academy - Linear Algebra</a></li>
 							<li>YouTube: <a href="https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">3Blue1Brown - Essence of Linear Algebra</a></li>
 							<li>‍Course: <a href="https://www.khanacademy.org/math">Khan Academy (Linear Algebra & Probability)</a>, <a href="https://mlcourse.ai/book/prereqs/math.html">mlcourse.ai</a></li>
 							<li>Pdf: <a href="https://people.math.harvard.edu/~knill/teaching/math19/math19b_2011.pdf">Linear Algebra with Probability</a></li>
@@ -1232,26 +1090,36 @@
         </div>
 
         <footer class="site-footer">
-            <div class="cols">
-                <div>
-                    <h3>Learn interactively</h3>
-                    <a href="https://aimlcompanion.ai/">AI-ML Companion</a> - 22 tracks, 300+ modules<br>
-                    <a href="https://aimlcompanion.ai/roadmap">Roadmap</a> &middot; <a href="https://aimlcompanion.ai/glossary">Glossary</a> &middot; <a href="https://aimlcompanion.ai/blog">Blog</a>
+            <div class="footer-inner">
+                <div class="footer-cta">
+                    <h3>Learn every topic on this roadmap, interactively</h3>
+                    <p>Animated lessons, quizzes and runnable Python across 22 tracks and 300+ modules.</p>
+                    <a class="btn" href="https://aimlcompanion.ai/">Start on AI-ML Companion</a>
                 </div>
-                <div>
-                    <h3>Guides</h3>
-                    <a href="https://aimlcompanion.ai/guide/what-is-rag">RAG</a> &middot; <a href="https://aimlcompanion.ai/guide/agentic-ai">Agentic AI</a> &middot; <a href="https://aimlcompanion.ai/guide/transformer-architecture">Transformers</a> &middot; <a href="https://aimlcompanion.ai/guide/generative-ai">Generative AI</a>
+                <div class="footer-cols">
+                    <div class="col">
+                        <h4>Learn</h4>
+                        <a href="https://aimlcompanion.ai/">AI-ML Companion</a>
+                        <a href="https://aimlcompanion.ai/roadmap">Interactive roadmap</a>
+                        <a href="https://aimlcompanion.ai/glossary">Glossary</a>
+                        <a href="https://aimlcompanion.ai/blog">Blog</a>
+                    </div>
+                    <div class="col">
+                        <h4>Core guides</h4>
+                        <a href="https://aimlcompanion.ai/guide/what-is-rag">What is RAG</a>
+                        <a href="https://aimlcompanion.ai/guide/agentic-ai">Agentic AI</a>
+                        <a href="https://aimlcompanion.ai/guide/transformer-architecture">Transformers</a>
+                        <a href="https://aimlcompanion.ai/guide/generative-ai">Generative AI</a>
+                    </div>
+                    <div class="col">
+                        <h4>Interview prep</h4>
+                        <a href="https://aimlcompanion.ai/curriculum/interviewScenarios">Interview Q&amp;A track</a>
+                        <a href="https://aimlcompanion.ai/guide/genai-interview-questions">GenAI questions</a>
+                        <a href="https://aimlcompanion.ai/guide/llm-interview-questions">LLM questions</a>
+                    </div>
                 </div>
-                <div>
-                    <h3>Interview prep</h3>
-                    <a href="https://aimlcompanion.ai/curriculum/interviewScenarios">Interview Q&amp;A track</a> (13 free modules)
-                </div>
-                <div>
-                    <h3>Open source &amp; connect</h3>
-                    <a href="https://github.com/genieincodebottle/generative-ai">generative-ai repo</a> &middot; <a href="https://www.youtube.com/@genieincodebottle">YouTube</a> &middot; <a href="https://www.linkedin.com/in/rajesh-srivastava">LinkedIn</a> &middot; <a href="https://medium.com/@raj-srivastava">Medium</a>
-                </div>
+                <p class="footer-note">A free GenAI learning roadmap, maintained by Rajesh Srivastava.</p>
             </div>
-            <p class="muted">Maintained by Rajesh Srivastava (genieincodebottle). Roadmap also available in the <a href="https://github.com/genieincodebottle/generative-ai/blob/main/GenAI_Roadmap.md">generative-ai</a> repo.</p>
         </footer>
     </div>
 </body>
